@@ -137,7 +137,7 @@ export default function Home() {
               <StaggerItem>
                 <AnimatedStat className="flex flex-col">
                   <h3 className="text-4xl md:text-6xl font-black text-white mb-2 italic">
-                    800<span className="text-primary text-3xl">m+</span>
+                    2494<span className="text-primary text-3xl">m+</span>
                   </h3>
                   <p className="text-blue-300 uppercase tracking-widest text-sm font-bold">
                     Elevation Gain
@@ -147,7 +147,7 @@ export default function Home() {
               <StaggerItem>
                 <AnimatedStat className="flex flex-col">
                   <h3 className="text-4xl md:text-6xl font-black text-white mb-2 italic">
-                    15.5<span className="text-primary text-3xl">h</span>
+                    14<span className="text-primary text-3xl">h</span>
                   </h3>
                   <p className="text-blue-300 uppercase tracking-widest text-sm font-bold">
                     Cut-off Time
@@ -290,7 +290,7 @@ export default function Home() {
                   </div>
                   <div className="flex justify-between border-b border-white/10 pb-2">
                     <span className="text-gray-400 text-sm">Cut-off Time</span>
-                    <span className="text-white font-bold">15.5 hours</span>
+                    <span className="text-white font-bold">14 hours</span>
                   </div>
                   <div className="flex justify-between border-b border-white/10 pb-2">
                     <span className="text-gray-400 text-sm">
@@ -536,7 +536,7 @@ export default function Home() {
               },
               {
                 q: "Is there mandatory gear?",
-                a: "Yes, all runners must carry a waterproof jacket, 1L water, survival blanket, whistle, and mobile phone.",
+                a: "Yes, all runners must carry a windproof jacket, 1L water, survival blanket, whistle, and mobile phone.",
               },
               {
                 q: "Can I have a pacer?",
@@ -544,7 +544,7 @@ export default function Home() {
               },
               {
                 q: "What is the refund policy?",
-                a: "50% refund is available until Feb 10th, 2026. No refunds after that date. Deferrals allowed for medical reasons.",
+                a: "DO you really want to quit?If yes then 50% refund is available until Feb 10th, 2026. No refunds after that date. Deferrals allowed for medical reasons.",
               },
             ].map((faq, index) => (
               <StaggerItem key={index}>
