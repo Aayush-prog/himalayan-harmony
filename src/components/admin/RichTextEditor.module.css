@@ -1,0 +1,73 @@
+.editorWrapper {
+    margin-bottom: 20px;
+}
+
+.label {
+    display: block;
+    margin-bottom: 8px;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.toolbar {
+    display: flex;
+    gap: 5px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px;
+    border-radius: 6px 6px 0 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: none;
+}
+
+.toolBtn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #ccc;
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.toolBtn:hover {
+    background: var(--primary);
+    color: #000;
+}
+
+.textarea {
+    width: 100%;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0 0 6px 6px;
+    color: #fff;
+    font-family: monospace;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    resize: vertical;
+}
+
+.textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.preview {
+    margin-top: 15px;
+    background: #1a1a2e;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.preview small {
+    display: block;
+    color: #666;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+}
+
+.previewContent {
+    color: #ddd;
+}

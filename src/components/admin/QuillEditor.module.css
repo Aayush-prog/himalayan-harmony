@@ -1,0 +1,38 @@
+.editorWrapper {
+    margin-bottom: 20px;
+}
+
+.label {
+    display: block;
+    margin-bottom: 8px;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.quillContainer {
+    background: #fff;
+    /* Quill needs a white background typically or careful styling */
+    border-radius: 8px;
+    overflow: hidden;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+}
+
+.quill {
+    height: 100%;
+    border: none;
+}
+
+/* Override some Quill defaults to match our dark mode theme where possible, 
+   but keep editor area light for readability or style accordingly */
+:global(.ql-toolbar) {
+    background: #f0f0f0;
+    border-color: #ccc !important;
+}
+
+:global(.ql-container) {
+    background: #fff;
+    border-color: #ccc !important;
+    font-family: inherit;
+}

@@ -1,0 +1,177 @@
+@import "tailwindcss";
+
+@theme {
+  /* 
+     Palette based on 'Himalayan Harmony' Poster
+     Theme: "Pink Sky, Blue Runners"
+  */
+
+  /* Extracted Colors */
+  --color-harmony-pink: rgb(255 143 163);
+  /* Soft Salmon/Pink from sky */
+  --color-harmony-blue: rgb(42 107 242);
+  /* Vibrant Blue from runners */
+  --color-harmony-dark: rgb(10 25 60);
+  /* Deep Blue for readable background */
+  --color-harmony-purple: rgb(88 28 135);
+  /* Deep Purple for gradients */
+
+  /* Structural Variables */
+  --color-background: var(--color-harmony-dark);
+  --color-foreground: rgb(255 255 255);
+
+  /* Primary Action: The Pink Sky Color */
+  --color-primary: var(--color-harmony-pink);
+  --color-primary-hover: rgb(255 113 133);
+
+  /* Secondary: The Runner Blue */
+  --color-secondary: var(--color-harmony-blue);
+
+  --color-muted: rgb(148 178 255);
+  /* Lighter Blue text */
+
+  --font-sans: Inter, system-ui, sans-serif;
+  --container-2xl: 1200px;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased;
+
+    /* 
+       Poster Aesthetic:
+       Combination of a deep gradient + the "halftone" dot texture.
+    */
+    background-color: var(--color-harmony-dark);
+    background-image:
+      radial-gradient(circle at 15% 50%, rgba(42, 107, 242, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 85% 30%, rgba(255, 143, 163, 0.1) 0%, transparent 50%),
+      radial-gradient(var(--color-harmony-blue) 1px, transparent 1px),
+      radial-gradient(var(--color-harmony-blue) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+    background-position: 0 0, 0 0, 0 0, 20px 20px;
+    background-attachment: fixed;
+    /* Soften the dots */
+    background-blend-mode: normal, normal, overlay, overlay;
+
+    /* Selection Color */
+    ::selection {
+      background-color: var(--color-primary);
+      color: var(--color-harmony-dark);
+    }
+  }
+
+  /* Custom Scrollbar - Matching the Blue/Pink theme */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-background);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--color-primary), var(--color-secondary));
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary-hover);
+  }
+
+  /* Typography */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold uppercase tracking-wide;
+  }
+
+  h1 {
+    @apply text-5xl md:text-7xl mb-6;
+    /* Poster Headline Style: maybe a slight text shadow */
+    text-shadow: 2px 2px 0px rgba(42, 107, 242, 0.5);
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl mb-6 text-primary;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl mb-4 text-white/90;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-8 py-4 rounded-none font-black uppercase tracking-widest transition-all duration-300 text-sm inline-flex items-center justify-center cursor-pointer border-none skew-x-[-10deg];
+  }
+
+  .btn span {
+    @apply skew-x-[10deg] inline-block;
+  }
+
+  /* 
+     Primary Button: "Wisely" using the Pink as a high-contrast action
+  */
+  .btn-primary {
+    @apply bg-primary text-[#0a193c] hover:brightness-110 shadow-[4px_4px_0px_0px_var(--color-secondary)];
+    /* No rounded corners, robust shadow for 'poster' feel */
+  }
+
+  .btn-primary:active {
+    @apply translate-x-[2px] translate-y-[2px] shadow-[2px_2px_0px_0px_var(--color-secondary)];
+  }
+
+  /* 
+     Outline/Secondary Button
+  */
+  .btn-outline {
+    @apply border-2 border-secondary bg-transparent text-white hover:bg-secondary hover:text-white;
+  }
+
+  /* 
+     Cards / Glass Panels
+  */
+  /* 
+     Cards / Glass Panels
+  */
+  .card-poster {
+    @apply bg-[#1a2c55]/80 backdrop-blur-sm border-l-4 border-primary p-6 relative overflow-hidden;
+  }
+
+  .card-poster::before {
+    content: '';
+    @apply absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-white/5 to-transparent pointer-events-none;
+  }
+
+  /* New Design Box - Parallelogram/Rectangular Technical Look */
+  .design-box {
+    @apply relative bg-[#0a193c] border border-white/10 p-6 skew-x-[-6deg] hover:border-primary/50 transition-colors duration-300 italic;
+    box-shadow: 4px 4px 0px 0px rgba(42, 107, 242, 0.2);
+  }
+
+  .design-box>* {
+    @apply skew-x-[6deg];
+    /* Counter-skew content */
+  }
+
+  .design-box::after {
+    content: '';
+    @apply absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/30 z-0 skew-x-[6deg] translate-x-2 -translate-y-2;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-white;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4;
+  }
+
+  .clip-path-slant {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  }
+}

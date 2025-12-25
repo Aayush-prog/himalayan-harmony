@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Racetiming Nepal" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Himalayan Ultra 100km</name>
+    <desc>Official Race Track</desc>
+  </metadata>
+  <wpt lat="22.3893" lon="114.3039">
+    <ele>10</ele>
+    <name>Start: Pak Tam Chung</name>
+    <desc>Race Start Point</desc>
+  </wpt>
+  <wpt lat="22.3700" lon="114.3500">
+    <ele>120</ele>
+    <name>CP1: High Island</name>
+    <desc>Check Point 1</desc>
+  </wpt>
+  <wpt lat="22.4000" lon="114.3600">
+    <ele>50</ele>
+    <name>CP2: Wong Shek</name>
+    <desc>Check Point 2</desc>
+  </wpt>
+  <wpt lat="22.4200" lon="114.3200">
+    <ele>200</ele>
+    <name>CP3: Hoi Ha</name>
+    <desc>Check Point 3</desc>
+  </wpt>
+  <wpt lat="22.4116" lon="114.1160">
+    <ele>957</ele>
+    <name>Finish: Tai Mo Shan</name>
+    <desc>Race Finish Point</desc>
+  </wpt>
+  <trk>
+    <name>Race Track</name>
+    <trkseg>
+      <trkpt lat="22.3893" lon="114.3039"><ele>10</ele></trkpt>
+      <trkpt lat="22.3870" lon="114.3100"><ele>20</ele></trkpt>
+      <trkpt lat="22.3840" lon="114.3300"><ele>50</ele></trkpt>
+      <trkpt lat="22.3750" lon="114.3400"><ele>80</ele></trkpt>
+      <trkpt lat="22.3700" lon="114.3500"><ele>120</ele></trkpt>
+      <trkpt lat="22.3650" lon="114.3600"><ele>100</ele></trkpt>
+      <trkpt lat="22.3600" lon="114.3700"><ele>80</ele></trkpt>
+      <trkpt lat="22.3700" lon="114.3750"><ele>60</ele></trkpt>
+      <trkpt lat="22.3800" lon="114.3800"><ele>50</ele></trkpt>
+      <trkpt lat="22.3900" lon="114.3700"><ele>40</ele></trkpt>
+      <trkpt lat="22.4000" lon="114.3600"><ele>50</ele></trkpt>
+      <trkpt lat="22.4100" lon="114.3400"><ele>150</ele></trkpt>
+      <trkpt lat="22.4200" lon="114.3200"><ele>200</ele></trkpt>
+      <trkpt lat="22.4250" lon="114.3000"><ele>180</ele></trkpt>
+      <trkpt lat="22.4300" lon="114.2800"><ele>160</ele></trkpt>
+      <trkpt lat="22.4200" lon="114.2650"><ele>250</ele></trkpt>
+      <trkpt lat="22.4100" lon="114.2500"><ele>400</ele></trkpt>
+      <trkpt lat="22.4150" lon="114.2000"><ele>600</ele></trkpt>
+      <trkpt lat="22.4100" lon="114.1500"><ele>800</ele></trkpt>
+      <trkpt lat="22.4116" lon="114.1160"><ele>957</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>
