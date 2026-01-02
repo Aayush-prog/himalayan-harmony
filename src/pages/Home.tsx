@@ -96,9 +96,14 @@ export default function Home() {
               <span className="text-[10px] md:text-xs uppercase text-gray-400 tracking-wider block">
                 Organized By
               </span>
-              <strong className="text-xs md:text-sm text-primary tracking-wide">
+              <a
+                href="https://hknutra.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs md:text-sm text-primary tracking-wide font-bold hover:text-white transition-colors"
+              >
                 HKNUTRA
-              </strong>
+              </a>
             </div>
           </motion.div>
         </div>
@@ -116,11 +121,13 @@ export default function Home() {
             </TextReveal>
             <FadeInUp delay={0.2}>
               <p className="text-lg md:text-xl text-blue-100/80 mb-12 leading-relaxed font-medium">
-                The Himalayan Harmony is an ultra endurance race that takes
-                place in Hong Kong, starting in Pak Tam Chung on the Sai Kung
-                Peninsula and covering some of the most beautiful trails in Hong
-                Kong, including the MacLehose Trail. The race finishes at the
-                summit of Tai Mo Shan, Hong Kong's highest peak.
+                Himalayan Harmony – 2026 is an ultra-endurance race set in Hong
+                Kong's highland scenery, inspired by Nepal's formidable trails.
+                Starting at Tai Mo Shan Rotary Park, runners will be challenged
+                by the ascents and descents of the most celebrated MacLehose and
+                Wilson Trails. Then the loop will come to an end with a final
+                push over the summit of Tai Mo Shan—the territory's highest
+                peak—before returning to the start.
               </p>
             </FadeInUp>
             <StaggerContainer className="flex flex-col md:flex-row justify-around mt-16 pt-10 border-t border-white/10 gap-8">

@@ -54,6 +54,7 @@ const Footer = () => {
                 { name: "Race Info", path: "/race-info" },
                 { name: "News", path: "/news" },
                 { name: "Results", path: "/results" },
+                { name: "HKNUTRA", path: "https://hknutra.com", external: true },
               ].map((link, index) => (
                 <motion.li
                   key={link.name}
@@ -62,16 +63,31 @@ const Footer = () => {
                   viewport={{ once: true }}
                   transition={{ delay: 0.1 + index * 0.05 }}
                 >
-                  <Link
-                    to={link.path}
-                    className="text-gray-400 hover:text-white transition-all duration-300 flex items-center group text-xs md:text-sm"
-                  >
-                    <motion.span
-                      className="w-0 h-[1px] bg-primary mr-0 transition-all duration-300"
-                      whileHover={{ width: 8, marginRight: 8 }}
-                    />
-                    <motion.span whileHover={{ x: 5 }}>{link.name}</motion.span>
-                  </Link>
+                  {(link as any).external ? (
+                    <a
+                      href={link.path}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-400 hover:text-white transition-all duration-300 flex items-center group text-xs md:text-sm"
+                    >
+                      <motion.span
+                        className="w-0 h-[1px] bg-primary mr-0 transition-all duration-300"
+                        whileHover={{ width: 8, marginRight: 8 }}
+                      />
+                      <motion.span whileHover={{ x: 5 }}>{link.name}</motion.span>
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.path}
+                      className="text-gray-400 hover:text-white transition-all duration-300 flex items-center group text-xs md:text-sm"
+                    >
+                      <motion.span
+                        className="w-0 h-[1px] bg-primary mr-0 transition-all duration-300"
+                        whileHover={{ width: 8, marginRight: 8 }}
+                      />
+                      <motion.span whileHover={{ x: 5 }}>{link.name}</motion.span>
+                    </Link>
+                  )}
                 </motion.li>
               ))}
             </ul>
