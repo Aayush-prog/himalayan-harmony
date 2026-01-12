@@ -388,7 +388,7 @@ export default function Home() {
       </section>
 
       {/* Sponsors Section */}
-      <section className="py-20 relative z-10 border-t border-white/5">
+      {/* <section className="py-20 relative z-10 border-t border-white/5">
         <div className="container mx-auto px-4">
           <FadeInUp>
             <h2 className="text-center mb-4 text-4xl md:text-5xl font-black uppercase italic tracking-tighter text-white">
@@ -400,7 +400,7 @@ export default function Home() {
           </FadeInUp>
 
           <StaggerContainer className="space-y-12" staggerDelay={0.1}>
-            {/* Title Sponsor */}
+           
             <StaggerItem>
               <div className="text-center">
                 <p className="text-xs text-primary font-bold uppercase tracking-widest mb-6">
@@ -421,7 +421,6 @@ export default function Home() {
               </div>
             </StaggerItem>
 
-            {/* Gold Sponsors */}
             <StaggerItem>
               <div className="text-center">
                 <p className="text-xs text-yellow-500 font-bold uppercase tracking-widest mb-6">
@@ -458,7 +457,6 @@ export default function Home() {
               </div>
             </StaggerItem>
 
-            {/* Silver Sponsors */}
             <StaggerItem>
               <div className="text-center">
                 <p className="text-xs text-gray-400 font-bold uppercase tracking-widest mb-6">
@@ -508,7 +506,7 @@ export default function Home() {
                   className="btn btn-outline text-xs px-6 py-3 border-white/20 text-gray-400 hover:text-white hover:border-primary hover:bg-primary/10"
                 >
                   <span>Become a Sponsor</span>
-                </Link> */}
+           
                 <p className="text-[10px] text-gray-600 mt-3 uppercase tracking-widest">
                   Partner with us
                 </p>
@@ -522,7 +520,7 @@ export default function Home() {
             </div>
           </FadeInUp>
         </div>
-      </section>
+      </section> */}
 
       {/* FAQ Section */}
       <section className="py-20 pb-32 relative z-10 bg-black/30 backdrop-blur-[2px] border-t border-white/5">
