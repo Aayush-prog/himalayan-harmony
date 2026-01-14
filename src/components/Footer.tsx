@@ -142,11 +142,6 @@ const Footer = () => {
             </h4>
             <div className="space-y-3 md:space-y-4 text-gray-400 text-xs md:text-sm font-light">
               <p>
-                G/F, 874 Canton Road,
-                <br />
-                Yau Ma Tei, Kowloon, Hong Kong
-              </p>
-              <p>
                 <a
                   href="mailto:himalaynharmony@gmail.com"
                   className="hover:text-primary transition-colors"
@@ -156,10 +151,10 @@ const Footer = () => {
               </p>
               <p>
                 <a
-                  href="tel:+85268443741"
+                  href="tel:+85244640187"
                   className="hover:text-primary transition-colors"
                 >
-                  6844 3741
+                  44640187
                 </a>
               </p>
               <div className="flex gap-3 mt-4 md:mt-6">
