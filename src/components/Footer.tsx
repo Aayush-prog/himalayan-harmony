@@ -141,6 +141,7 @@ const Footer = () => {
               Contact
             </h4>
             <div className="space-y-3 md:space-y-4 text-gray-400 text-xs md:text-sm font-light">
+              <p className="hover:text-primary transition-colors">Hong Kong</p>
               <p>
                 <a
                   href="mailto:himalayanharmony@gmail.com"
@@ -151,10 +152,10 @@ const Footer = () => {
               </p>
               <p>
                 <a
-                  href="tel:+85244640187"
+                  href="https://wa.me/message/4SUC32QFITMWG1"
                   className="hover:text-primary transition-colors"
                 >
-                  44640187
+                  Whatsapp
                 </a>
               </p>
               <div className="flex gap-3 mt-4 md:mt-6">
