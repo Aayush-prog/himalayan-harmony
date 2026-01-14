@@ -21,7 +21,7 @@ const raceData = {
     name: "50KM Challenge",
     description:
       "The 50KM Challenge is a rigorous test of endurance, traversing the most scenic and challenging parts of Tai Mo Shan. Suitable for experienced trail runners, this course offers significantly high elevation gain and technical descents.",
-    elevation: { gain: "2,494m", loss: "2,400m" },
+    elevation: { gain: "2,900m", loss: "2,400m" },
     gpxFile: "/HIMALAYAN HARMONY 50.gpx",
     checkpoints: [
       {
@@ -75,6 +75,7 @@ const raceData = {
     venue: "Rotary Park",
     minAge: "18+ Years",
     registrationFee: "HKD 790",
+    categories: ["18-39", "40-49", "50 above"],
   },
   "12KM": {
     name: "12KM Experience",
@@ -110,6 +111,7 @@ const raceData = {
     venue: "Rotary Park",
     minAge: "18+ Years",
     registrationFee: "HKD 390",
+    categories: ["12-13", "14-15", "16-17", "18-39", "40-49", "50 above"],
   },
 };
 
@@ -235,7 +237,8 @@ export default function RaceInfoPage() {
                   <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                   <div>
                     <p className="text-sm text-gray-300 mb-2">
-                      <strong className="text-primary">HKD 50</strong> from your registration fee goes to{" "}
+                      <strong className="text-primary">HKD 50</strong> from your
+                      registration fee goes to{" "}
                       <a
                         href="https://exchangeandempower.org/"
                         target="_blank"
@@ -244,10 +247,17 @@ export default function RaceInfoPage() {
                       >
                         Exchange and Empower
                       </a>
-                      , a Hong Kong based charity founded in 2018 that supports women from disadvantaged communities in Asia through the sport of trail running.
+                      , a Hong Kong based charity founded in 2018 that supports
+                      women from disadvantaged communities in Asia through the
+                      sport of trail running.
                     </p>
                     <p className="text-xs text-gray-400">
-                      Exchange and Empower's programs support women and children from rural Nepal and women working in Hong Kong as foreign domestic helpers. Through workshops, social hikes and training programs, athletes are empowered to build self-confidence and act as role models for other women in their communities.
+                      Exchange and Empower's programs support women and children
+                      from rural Nepal and women working in Hong Kong as foreign
+                      domestic helpers. Through workshops, social hikes and
+                      training programs, athletes are empowered to build
+                      self-confidence and act as role models for other women in
+                      their communities.
                     </p>
                   </div>
                 </div>
@@ -307,7 +317,7 @@ export default function RaceInfoPage() {
                     Age Categories:
                   </span>
                   <div className="flex flex-wrap gap-2">
-                    {["18-39", "40-49", "50 above"].map((age, i) => (
+                    {content.categories.map((age, i) => (
                       <span
                         key={i}
                         className="px-3 py-1 bg-primary/10 border border-primary/30 text-primary text-xs font-bold uppercase tracking-wider rounded"
@@ -472,13 +482,18 @@ export default function RaceInfoPage() {
           <FadeInUp delay={0.25}>
             <div className="flex justify-center">
               <button
-                onClick={() => setActiveTab(activeTab === "50KM" ? "12KM" : "50KM")}
+                onClick={() =>
+                  setActiveTab(activeTab === "50KM" ? "12KM" : "50KM")
+                }
                 className="relative group inline-block"
               >
                 <span className="absolute inset-0 bg-[#2a6bf2] -skew-x-12 translate-x-1.5 translate-y-1.5 border border-white/10"></span>
                 <span className="relative block bg-[#ff8fa3] -skew-x-12 px-8 py-3 hover:-translate-y-0.5 transition-transform border border-white/10">
                   <span className="block font-black italic uppercase text-[#0a193c] tracking-widest text-sm">
-                    View {activeTab === "50KM" ? "12KM Experience" : "50KM Challenge"}
+                    View{" "}
+                    {activeTab === "50KM"
+                      ? "12KM Experience"
+                      : "50KM Challenge"}
                   </span>
                 </span>
               </button>

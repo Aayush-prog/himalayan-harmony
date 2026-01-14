@@ -144,7 +144,7 @@ export default function Home() {
               <StaggerItem>
                 <AnimatedStat className="flex flex-col">
                   <h3 className="text-4xl md:text-6xl font-black text-white mb-2 italic">
-                    2494<span className="text-primary text-3xl">m+</span>
+                    2900<span className="text-primary text-3xl">m+</span>
                   </h3>
                   <p className="text-blue-300 uppercase tracking-widest text-sm font-bold">
                     Elevation Gain
@@ -293,7 +293,7 @@ export default function Home() {
                     <span className="text-gray-400 text-sm">
                       Elevation Gain
                     </span>
-                    <span className="text-white font-bold">2,494m</span>
+                    <span className="text-white font-bold">2,900m</span>
                   </div>
                   <div className="flex justify-between border-b border-white/10 pb-2">
                     <span className="text-gray-400 text-sm">Cut-off Time</span>

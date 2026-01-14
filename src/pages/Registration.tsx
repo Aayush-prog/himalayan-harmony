@@ -140,11 +140,15 @@ export default function RegistrationPage() {
                       08:00 (14h Cut-off)
                     </span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="flex items-center gap-2">
-                      <MapPin size={14} className="text-primary" /> Min. Age
+                  <div className="flex justify-between items-start">
+                    <span className="flex items-center gap-2 mt-0.5">
+                      <Trophy size={14} className="text-primary" /> Categories
                     </span>
-                    <span className="text-white font-bold">18 Years</span>
+                    <div className="text-right">
+                      <span className="text-white font-bold block">18-39</span>
+                      <span className="text-white font-bold block">40-49</span>
+                      <span className="text-white font-bold block">50+</span>
+                    </div>
                   </div>
                 </div>
 
@@ -238,6 +242,9 @@ export default function RegistrationPage() {
                       <Trophy size={14} className="text-primary" /> Categories
                     </span>
                     <div className="text-right">
+                      <span className="text-white font-bold block">12-13</span>
+                      <span className="text-white font-bold block">14-15</span>
+                      <span className="text-white font-bold block">16-17</span>
                       <span className="text-white font-bold block">18-39</span>
                       <span className="text-white font-bold block">40-49</span>
                       <span className="text-white font-bold block">50+</span>
