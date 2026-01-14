@@ -305,7 +305,17 @@ export default function Home() {
                     </span>
                     <span className="text-primary font-bold">HKD 790</span>
                   </div>
+                  <div className="flex justify-between border-b border-white/10 pb-2">
+                    <span className="text-gray-400 text-sm">
+                      Early Bird Price
+                    </span>
+                    <span className="text-yellow-400 font-bold">HKD 720</span>
+                  </div>
                 </div>
+
+                <p className="text-xs text-yellow-400 mb-4">
+                  Early Bird discount available until Feb 5, 2026
+                </p>
 
                 <Link
                   to="/race-info"
@@ -359,7 +369,17 @@ export default function Home() {
                     </span>
                     <span className="text-primary font-bold">HKD 390</span>
                   </div>
+                  <div className="flex justify-between border-b border-white/10 pb-2">
+                    <span className="text-gray-400 text-sm">
+                      Early Bird Price
+                    </span>
+                    <span className="text-yellow-400 font-bold">HKD 350</span>
+                  </div>
                 </div>
+
+                <p className="text-xs text-yellow-400 mb-4">
+                  Early Bird discount available until Feb 5, 2026
+                </p>
 
                 <Link
                   to="/race-info"

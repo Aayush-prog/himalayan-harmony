@@ -121,8 +121,12 @@ export default function RegistrationPage() {
                 <div className="text-center text-4xl md:text-5xl font-black text-primary mb-2">
                   HKD 790
                 </div>
-                <div className="text-center text-gray-400 text-sm mb-6">
+                <div className="text-center text-gray-400 text-sm mb-2">
                   Registration Fee
+                </div>
+                <div className="text-center mb-6">
+                  <span className="text-yellow-400 font-bold text-lg">Early Bird: HKD 720</span>
+                  <span className="text-yellow-400/70 text-xs block mt-1">before Feb 5, 2026</span>
                 </div>
 
                 <div className="bg-black/20 p-4 mb-6 space-y-2 text-sm text-gray-300">
@@ -218,8 +222,12 @@ export default function RegistrationPage() {
                 <div className="text-center text-4xl md:text-5xl font-black text-white mb-2">
                   HKD 390
                 </div>
-                <div className="text-center text-gray-500 text-sm mb-6">
+                <div className="text-center text-gray-500 text-sm mb-2">
                   Registration Fee
+                </div>
+                <div className="text-center mb-6">
+                  <span className="text-yellow-400 font-bold text-lg">Early Bird: HKD 350</span>
+                  <span className="text-yellow-400/70 text-xs block mt-1">before Feb 5, 2026</span>
                 </div>
 
                 <div className="bg-black/20 p-4 mb-6 space-y-2 text-sm text-gray-300">

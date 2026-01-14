@@ -75,6 +75,8 @@ const raceData = {
     venue: "Rotary Park",
     minAge: "18+ Years",
     registrationFee: "HKD 790",
+    earlyBirdFee: "HKD 720",
+    earlyBirdDeadline: "Feb 5, 2026",
     categories: ["18-39", "40-49", "50 above"],
   },
   "12KM": {
@@ -111,6 +113,8 @@ const raceData = {
     venue: "Rotary Park",
     minAge: "18+ Years",
     registrationFee: "HKD 390",
+    earlyBirdFee: "HKD 350",
+    earlyBirdDeadline: "Feb 5, 2026",
     categories: ["12-13", "14-15", "16-17", "18-39", "40-49", "50 above"],
   },
 };
@@ -216,6 +220,10 @@ export default function RaceInfoPage() {
                   <span className="text-sm text-gray-400 uppercase tracking-widest">
                     Registration Fee
                   </span>
+                  <div className="mt-2 text-right">
+                    <span className="text-yellow-400 font-bold">Early Bird: {content.earlyBirdFee}</span>
+                    <span className="text-yellow-400/70 text-xs block">before {content.earlyBirdDeadline}</span>
+                  </div>
                   <span className="text-xs text-gray-500 mt-1">
                     (HKD 50 goes to{" "}
                     <a
