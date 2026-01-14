@@ -107,14 +107,19 @@ const Header = () => {
           >
             Login
           </Link> */}
-          <Link to="/registration" className="relative group inline-block">
+          <a
+            href="https://raceresults.com.hk/event/446"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative group inline-block"
+          >
             <span className="absolute inset-0 bg-[#2a6bf2] transform -skew-x-12 translate-x-1.5 translate-y-1.5 border border-white/10"></span>
             <span className="relative block bg-[#ff8fa3] transform -skew-x-12 px-8 py-3 hover:-translate-y-0.5 transition-transform border border-white/10">
               <span className="block font-black italic uppercase text-[#0a193c] tracking-widest text-sm">
                 Register Now
               </span>
             </span>
-          </Link>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
