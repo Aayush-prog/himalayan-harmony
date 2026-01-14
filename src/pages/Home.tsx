@@ -361,7 +361,7 @@ export default function Home() {
                   </div>
                   <div className="flex justify-between border-b border-white/10 pb-2">
                     <span className="text-gray-400 text-sm">Cut-off Time</span>
-                    <span className="text-white font-bold">5.5 hours</span>
+                    <span className="text-white font-bold">4 hours</span>
                   </div>
                   <div className="flex justify-between border-b border-white/10 pb-2">
                     <span className="text-gray-400 text-sm">

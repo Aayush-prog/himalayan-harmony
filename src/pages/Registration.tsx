@@ -71,7 +71,7 @@ export default function RegistrationPage() {
                     Closing Date
                   </span>
                   <span className="text-2xl md:text-3xl font-black text-white">
-                    Feb 15, 2026
+                    Mar 19, 2026
                   </span>
                 </motion.div>
               </div>
@@ -125,8 +125,12 @@ export default function RegistrationPage() {
                   Registration Fee
                 </div>
                 <div className="text-center mb-6">
-                  <span className="text-yellow-400 font-bold text-lg">Early Bird: HKD 720</span>
-                  <span className="text-yellow-400/70 text-xs block mt-1">before Feb 5, 2026</span>
+                  <span className="text-yellow-400 font-bold text-lg">
+                    Early Bird: HKD 720
+                  </span>
+                  <span className="text-yellow-400/70 text-xs block mt-1">
+                    before Feb 5, 2026
+                  </span>
                 </div>
 
                 <div className="bg-black/20 p-4 mb-6 space-y-2 text-sm text-gray-300">
@@ -226,8 +230,12 @@ export default function RegistrationPage() {
                   Registration Fee
                 </div>
                 <div className="text-center mb-6">
-                  <span className="text-yellow-400 font-bold text-lg">Early Bird: HKD 350</span>
-                  <span className="text-yellow-400/70 text-xs block mt-1">before Feb 5, 2026</span>
+                  <span className="text-yellow-400 font-bold text-lg">
+                    Early Bird: HKD 350
+                  </span>
+                  <span className="text-yellow-400/70 text-xs block mt-1">
+                    before Feb 5, 2026
+                  </span>
                 </div>
 
                 <div className="bg-black/20 p-4 mb-6 space-y-2 text-sm text-gray-300">

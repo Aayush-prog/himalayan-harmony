@@ -89,7 +89,7 @@ const raceData = {
       {
         name: "Start - Tai Mo Shan",
         dist: "0 km",
-        cutoff: "07:30 - 09:30",
+        cutoff: "09:00",
         refreshment: "Nepalese Cultural Show",
       },
       {
@@ -101,17 +101,17 @@ const raceData = {
       {
         name: "Finish - Tai Mo Shan",
         dist: "12.5 km",
-        cutoff: "10:00 - 13:00",
+        cutoff: "13:00",
         refreshment: "Aid, Food, Drinks",
       },
     ],
     date: "22 Mar 2026",
     day: "Sunday",
-    startTime: "07:30 - 09:30",
-    cutoff: "5.5h Cut-off",
+    startTime: "09:00",
+    cutoff: "4h Cut-off",
     location: "Tai Mo Shan",
     venue: "Rotary Park",
-    minAge: "18+ Years",
+    minAge: "12+ Years",
     registrationFee: "HKD 390",
     earlyBirdFee: "HKD 350",
     earlyBirdDeadline: "Feb 5, 2026",
@@ -221,8 +221,12 @@ export default function RaceInfoPage() {
                     Registration Fee
                   </span>
                   <div className="mt-2 text-right">
-                    <span className="text-yellow-400 font-bold">Early Bird: {content.earlyBirdFee}</span>
-                    <span className="text-yellow-400/70 text-xs block">before {content.earlyBirdDeadline}</span>
+                    <span className="text-yellow-400 font-bold">
+                      Early Bird: {content.earlyBirdFee}
+                    </span>
+                    <span className="text-yellow-400/70 text-xs block">
+                      before {content.earlyBirdDeadline}
+                    </span>
                   </div>
                   <span className="text-xs text-gray-500 mt-1">
                     (HKD 50 goes to{" "}

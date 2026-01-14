@@ -54,7 +54,11 @@ const Footer = () => {
                 { name: "Race Info", path: "/race-info" },
                 { name: "News", path: "/news" },
                 { name: "Results", path: "/results" },
-                { name: "HKNUTRA", path: "https://hknutra.com", external: true },
+                {
+                  name: "HKNUTRA",
+                  path: "https://hknutra.com",
+                  external: true,
+                },
               ].map((link, index) => (
                 <motion.li
                   key={link.name}
@@ -74,7 +78,9 @@ const Footer = () => {
                         className="w-0 h-[1px] bg-primary mr-0 transition-all duration-300"
                         whileHover={{ width: 8, marginRight: 8 }}
                       />
-                      <motion.span whileHover={{ x: 5 }}>{link.name}</motion.span>
+                      <motion.span whileHover={{ x: 5 }}>
+                        {link.name}
+                      </motion.span>
                     </a>
                   ) : (
                     <Link
@@ -85,7 +91,9 @@ const Footer = () => {
                         className="w-0 h-[1px] bg-primary mr-0 transition-all duration-300"
                         whileHover={{ width: 8, marginRight: 8 }}
                       />
-                      <motion.span whileHover={{ x: 5 }}>{link.name}</motion.span>
+                      <motion.span whileHover={{ x: 5 }}>
+                        {link.name}
+                      </motion.span>
                     </Link>
                   )}
                 </motion.li>
@@ -140,10 +148,10 @@ const Footer = () => {
               </p>
               <p>
                 <a
-                  href="mailto:Hknutra@gmail.com"
+                  href="mailto:himalaynharmony@gmail.com"
                   className="hover:text-primary transition-colors"
                 >
-                  hknutra@gmail.com
+                  himalaynharmony@gmail.com
                 </a>
               </p>
               <p>
