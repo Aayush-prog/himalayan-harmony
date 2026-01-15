@@ -244,32 +244,47 @@ export default function RaceInfoPage() {
               </div>
 
               {/* Exchange and Empower Info */}
-              <div className="bg-primary/10 border border-primary/30 p-4 mb-6 rounded">
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+              <div className="relative mb-10 overflow-hidden rounded border border-primary/50 bg-gradient-to-br from-primary/25 via-primary/10 to-transparent p-5 md:p-6 shadow-[0_0_35px_rgba(42,107,242,0.35)]">
+                {/* Outer glow halo */}
+                <div className="pointer-events-none absolute inset-0 rounded blur-xl bg-primary/20" />
+
+                {/* Left glow bar */}
+                <div className="absolute left-0 top-0 h-full w-1 bg-primary shadow-[0_0_18px_rgba(42,107,242,0.9)]" />
+
+                {/* Floating glow orb */}
+                <div className="absolute -top-10 -right-10 h-32 w-32 rounded-full bg-primary/30 blur-3xl animate-pulse" />
+
+                <div className="relative flex items-start gap-4">
+                  {/* Pulsing dot */}
+                  <div className="mt-1 flex h-3 w-3 flex-shrink-0 rounded-full bg-primary shadow-[0_0_16px_rgba(42,107,242,1)] animate-pulse" />
+
                   <div>
-                    <p className="text-sm text-gray-300 mb-2">
-                      <strong className="text-primary">HKD 50</strong> from your
-                      registration fee goes to{" "}
+                    <h4 className="mb-2 text-sm md:text-base font-black uppercase tracking-widest text-primary drop-shadow-[0_0_6px_rgba(42,107,242,0.8)]">
+                      Community Impact
+                    </h4>
+
+                    <p className="mb-3 text-sm md:text-base text-white leading-relaxed">
+                      <strong className="text-primary drop-shadow-[0_0_6px_rgba(42,107,242,0.8)]">
+                        HKD 50
+                      </strong>{" "}
+                      from your registration fee directly supports{" "}
                       <a
                         href="https://exchangeandempower.org/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-primary hover:text-white transition-colors font-bold"
+                        className="font-black text-primary underline underline-offset-4 hover:text-white transition-colors drop-shadow-[0_0_8px_rgba(42,107,242,0.8)]"
                       >
                         Exchange and Empower
                       </a>
-                      , a Hong Kong based charity founded in 2018 that supports
-                      women from disadvantaged communities in Asia through the
-                      sport of trail running.
+                      , a Hong Kong–based charity empowering women through trail
+                      running.
                     </p>
-                    <p className="text-xs text-gray-400">
-                      Exchange and Empower's programs support women and children
-                      from rural Nepal and women working in Hong Kong as foreign
-                      domestic helpers. Through workshops, social hikes and
-                      training programs, athletes are empowered to build
-                      self-confidence and act as role models for other women in
-                      their communities.
+
+                    <p className="text-xs md:text-sm text-gray-300 leading-relaxed">
+                      Their programs support women and children from rural Nepal
+                      and foreign domestic helpers in Hong Kong through
+                      workshops, social hikes, and structured training —
+                      building confidence and creating future role models.
                     </p>
                   </div>
                 </div>
@@ -494,9 +509,10 @@ export default function RaceInfoPage() {
           <FadeInUp delay={0.25}>
             <div className="flex justify-center">
               <button
-                onClick={() =>
-                  setActiveTab(activeTab === "50KM" ? "12KM" : "50KM")
-                }
+                onClick={() => {
+                  setActiveTab(activeTab === "50KM" ? "12KM" : "50KM");
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
                 className="relative group inline-block"
               >
                 <span className="absolute inset-0 bg-[#2a6bf2] -skew-x-12 translate-x-1.5 translate-y-1.5 border border-white/10"></span>
@@ -537,7 +553,7 @@ export default function RaceInfoPage() {
                   "Helping other runners in distress is mandatory; time lost will be adjusted.",
                   "The race director reserves the right to modify the course due to weather conditions.",
                   "Supporters provided by runners are only allowed at designated checkpoints.",
-                  "Age Categories: 18-39, 40-49 and 50 above.",
+                  `Age Categories: ${content.categories.join(", ")}`,
                 ].map((rule, i) => (
                   <StaggerItem key={i}>
                     <motion.li

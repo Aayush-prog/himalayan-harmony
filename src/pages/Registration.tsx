@@ -166,6 +166,7 @@ export default function RegistrationPage() {
                     "Finisher Medal",
                     "ITRA Points (Pending)",
                     "Top 3 Cash Prizes",
+                    "Age Group Trophies",
                   ].map((item, i) => (
                     <motion.li key={i} className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary shrink-0" />{" "}
