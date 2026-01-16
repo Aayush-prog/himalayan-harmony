@@ -37,6 +37,37 @@ const Footer = () => {
                 <span className="text-primary">HARMONY</span>
               </motion.h3>
             </Link>
+            <div className="flex items-center gap-2 text-xs text-gray-400">
+              <a
+                href="https://blynt.tech"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 text-xs text-gray-400"
+              >
+                <span>Powered by:</span>
+
+                <img
+                  src="https://blynt.tech/assets/logoBGLess-BY40Vm2Q.svg"
+                  alt="Blynt Tech"
+                  className="
+      h-4 w-auto
+      transition-transform duration-200
+      group-hover:scale-125
+    "
+                />
+
+                <span
+                  className="
+      font-semibold tracking-wide text-gray-300
+      transition-colors duration-200
+      group-hover:text-white
+    "
+                >
+                  Blynt Tech
+                </span>
+              </a>
+            </div>
+
             <p className="text-gray-400 leading-relaxed font-light text-xs md:text-sm">
               Push your limits in the heart of the mountains. The ultimate
               endurance challenge awaiting your spirit.
