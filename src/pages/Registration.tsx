@@ -25,7 +25,7 @@ export default function RegistrationPage() {
 
   return (
     <div className="flex flex-col overflow-hidden">
-      <PageHeader title="Registration" subtitle="Secure your spot for 2026" />
+      <PageHeader title="Registration" subtitle="Secure your spot for 2026" bgImage="/IMG_3480.JPG" />
 
       <div className="container mx-auto px-4 py-8 md:py-16">
         <section className="mb-12 md:mb-24">

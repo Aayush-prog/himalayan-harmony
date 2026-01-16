@@ -194,7 +194,7 @@ const RulesAndRegulations = () => {
 
     return (
         <div className="min-h-screen bg-background text-foreground">
-            <PageHeader title="Rules & Regulations" subtitle="規則及條例 | Safety First, Race Hard" />
+            <PageHeader title="Rules & Regulations" subtitle="規則及條例 | Safety First, Race Hard" bgImage="/IMG_3480.JPG" />
 
             <div className="container mx-auto px-4 py-12 max-w-5xl">
 

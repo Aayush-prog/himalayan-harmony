@@ -8,7 +8,7 @@ const Prizes = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <PageHeader title="Prizes & Awards" subtitle="Champions of the Trail" />
+      <PageHeader title="Prizes & Awards" subtitle="Champions of the Trail" bgImage="/IMG_8069.JPG" />
 
       <div className="container mx-auto px-4 py-12 max-w-5xl">
         {/* 50KM Category */}

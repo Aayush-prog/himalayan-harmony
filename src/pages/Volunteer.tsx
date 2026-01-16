@@ -10,7 +10,7 @@ const Volunteer = () => {
         <div className="min-h-screen bg-background text-foreground overflow-hidden">
             {/* Added a subtle overlay for extra depth if PageHeader doesn't cover it */}
 
-            <PageHeader title="VOLUNTEER" subtitle="JOIN THE CREW" bgImage="/volunteer_bg_artistic.png" />
+            <PageHeader title="VOLUNTEER" subtitle="JOIN THE CREW" bgImage="/IMG_6898.jpeg" />
 
             <div className="container-custom py-12 relative z-10">
 

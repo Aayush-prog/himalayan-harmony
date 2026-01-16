@@ -143,7 +143,7 @@ export default function RaceInfoPage() {
 
   return (
     <div className="flex flex-col overflow-hidden">
-      <PageHeader title="The Race" subtitle="Course Maps & Details" />
+      <PageHeader title="The Race" subtitle="Course Maps & Details" bgImage="/IMG_1854.JPG" />
 
       <div className="container mx-auto px-4 py-8 md:py-16">
         <FadeInUp>

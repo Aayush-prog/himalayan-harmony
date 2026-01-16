@@ -18,14 +18,22 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative min-h-screen md:min-h-[800px] flex items-center justify-center overflow-hidden p-0 pt-24 md:pt-32">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background z-10"></div>
-        <motion.img
-          src="/hero-bg.png"
-          alt="Trail Runner on Ridge"
-          className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-80 mix-blend-overlay"
+        <motion.video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/hero-bg.png"
+          className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-80 "
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
-        />
+        >
+          <source
+            src="/2C79EB18-3A32-49A2-B6ED-A5ED88160EDD.MOV"
+            type="video/mp4"
+          />
+        </motion.video>
         <div className="container relative z-20 text-center mt-8 md:mt-16 flex flex-col items-center px-4">
           <motion.h1
             className="text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-black mb-4 leading-none drop-shadow-2xl text-white tracking-tighter"
