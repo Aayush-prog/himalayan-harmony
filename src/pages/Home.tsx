@@ -23,16 +23,12 @@ export default function Home() {
           muted
           loop
           playsInline
-          poster="/hero-bg.png"
           className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-80 "
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
         >
-          <source
-            src="/2C79EB18-3A32-49A2-B6ED-A5ED88160EDD.MOV"
-            type="video/mp4"
-          />
+          <source src="/mobile.MOV" type="video/mp4" />
         </motion.video>
         <div className="container relative z-20 text-center mt-8 md:mt-16 flex flex-col items-center px-4">
           <motion.h1
