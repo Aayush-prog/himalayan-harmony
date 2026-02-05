@@ -28,9 +28,9 @@ const newsItems = [
     },
     {
         id: 4,
-        title: "Volunteer Recruitment Open",
+        title: "Volunteer Roles Fulfilled",
         date: "Oct 10, 2024",
-        excerpt: "Join the team! We are looking for enthusiastic volunteers to help man checkpoints and support runners.",
+        excerpt: "All volunteer positions have been filled! Thank you to everyone who applied to support the HK50 Series.",
         category: "Community"
     },
     {

@@ -1,6 +1,6 @@
 import PageHeader from '@/components/PageHeader';
 import { motion } from 'framer-motion';
-import { Gift, Users, Trophy, Zap, Car } from 'lucide-react';
+import { Gift, Users, Trophy, Zap, Car, CheckCircle } from 'lucide-react';
 import { usePageTitle } from '@/hooks/usePageTitle';
 
 const Volunteer = () => {
@@ -17,11 +17,11 @@ const Volunteer = () => {
                 {/* Intro Section with Poster Typography */}
                 <div className="text-center mb-20 max-w-3xl mx-auto">
                     <h2 className="text-3xl md:text-5xl font-black italic uppercase mb-6 tracking-tighter transform -skew-x-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
-                        Be The Pulse <br /><span className="text-primary not-italic skew-x-0 inline-block">Of The Race</span>
+                        All Roles Have <br /><span className="text-primary not-italic skew-x-0 inline-block">Been Fulfilled</span>
                     </h2>
                     <p className="text-lg text-blue-100/80 font-medium leading-relaxed max-w-2xl mx-auto">
-                        We are looking for enthusiastic individuals to help make the <span className="text-white font-bold">HK50 Series</span> a legendary experience.
-                        Whether you're a runner yourself or just love the mountain vibes, we have a role for you.
+                        Thank you for the overwhelming response! All volunteer positions for the <span className="text-white font-bold">HK50 Series</span> have been filled.
+                        We appreciate everyone who applied and look forward to an amazing event with our incredible volunteer crew.
                     </p>
                 </div>
 
@@ -44,8 +44,13 @@ const Volunteer = () => {
                                 { title: "Start/Finish Crew", desc: "Registration, baggage, medals, crowd control." },
                                 { title: "Media & Medical", desc: "Photography, videography, and first aid support." },
                             ].map((role, i) => (
-                                <div key={i} className="card-poster group hover:-translate-y-1 transition-transform duration-300">
-                                    <h4 className="font-bold text-xl text-white group-hover:text-primary transition-colors uppercase italic">{role.title}</h4>
+                                <div key={i} className="card-poster group relative opacity-75">
+                                    <div className="flex items-center justify-between">
+                                        <h4 className="font-bold text-xl text-white uppercase italic">{role.title}</h4>
+                                        <span className="flex items-center gap-1 text-green-400 text-sm font-bold uppercase tracking-wide">
+                                            <CheckCircle className="w-4 h-4" /> Filled
+                                        </span>
+                                    </div>
                                     <p className="text-blue-200 mt-1 font-medium">{role.desc}</p>
                                 </div>
                             ))}
@@ -101,15 +106,11 @@ const Volunteer = () => {
                             </ul>
 
                             <div className="mt-12 text-center">
-                                <a
-                                    href="https://forms.gle/sSjT4cSYqVvkmVXX6"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="btn btn-primary w-full md:w-auto text-xl py-6 hover:scale-105"
-                                >
-                                    <span>Apply To Volunteer</span>
-                                </a>
-                                <p className="mt-4 text-xs text-white/40 uppercase tracking-widest">Limited spots available</p>
+                                <div className="btn w-full md:w-auto text-xl py-6 bg-green-600/20 border-2 border-green-500/40 text-green-400 cursor-default flex items-center justify-center gap-2">
+                                    <CheckCircle className="w-6 h-6" />
+                                    <span>All Positions Filled</span>
+                                </div>
+                                <p className="mt-4 text-xs text-white/40 uppercase tracking-widest">Thank you to all applicants</p>
                             </div>
                         </div>
                     </motion.div>

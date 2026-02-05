@@ -200,8 +200,8 @@ export default function Home() {
               },
               {
                 date: "NOV 10, 2024",
-                title: "Volunteer Recruitment",
-                desc: "Join our team and be part of the adventure.",
+                title: "Volunteer Roles Fulfilled",
+                desc: "All volunteer positions have been filled. Thank you!",
                 link: "#",
               },
             ].map((news, index) => (
