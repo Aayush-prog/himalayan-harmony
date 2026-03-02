@@ -178,7 +178,7 @@ const Footer = () => {
                   href="mailto:himalayanharmony@gmail.com"
                   className="hover:text-primary transition-colors"
                 >
-                  himalayanharmony@gmail.com
+                  himalayanharmony852@gmail.com
                 </a>
               </p>
               <p>
