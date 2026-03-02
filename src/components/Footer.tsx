@@ -175,7 +175,7 @@ const Footer = () => {
               <p className="hover:text-primary transition-colors">Hong Kong</p>
               <p>
                 <a
-                  href="mailto:himalayanharmony@gmail.com"
+                  href="mailto:himalayanharmony852@gmail.com"
                   className="hover:text-primary transition-colors"
                 >
                   himalayanharmony852@gmail.com
