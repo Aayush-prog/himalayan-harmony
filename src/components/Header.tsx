@@ -23,6 +23,7 @@ const Header = () => {
     },
     { label: "Registration", path: "/registration" },
     { label: "Volunteer", path: "/volunteer" },
+    { label: "Sponsorship", path: "/sponsorship" },
     // { label: "News", path: "/news" },
     { label: "Results", path: "/results" },
   ];
@@ -36,13 +37,28 @@ const Header = () => {
   };
 
   return (
-    <header className="h-16 md:h-20 w-full fixed top-0 left-0 z-50 bg-background/80 backdrop-blur-md border-b border-white/10">
+    <header className="h-20 md:h-24 w-full fixed top-0 left-0 z-50 bg-background/80 backdrop-blur-md border-b border-white/10">
       <div className="w-full h-full flex items-center justify-between px-4 md:px-8 lg:px-16">
         {/* Logo - Left */}
-        <div className="text-xl md:text-2xl font-extrabold tracking-tighter z-50 italic shrink-0 flex-1">
-          <Link to="/" onClick={() => setIsMenuOpen(false)}>
+        <div className="z-50 shrink-0 flex-1 flex flex-col gap-1">
+          <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-xl md:text-2xl font-extrabold tracking-tighter italic">
             HIMALAYAN<span className="text-primary">HARMONY</span>
           </Link>
+          <div className="hidden lg:flex items-center gap-1.5">
+            {[
+              { src: "/sponsor1.jpeg", alt: "Escape Wanchai", href: "https://www.escapehk.com/" },
+              { src: "/sponsor2.jpeg", alt: "Bar 109 Wanchai", href: "https://www.bar109.hk/" },
+              { src: "/sponsor3.jpeg", alt: "Gurkha Force Security Limited", href: "https://www.gurkhahk.site/" },
+              { src: "/brand1.jpeg", alt: "T8", href: "https://t8.run/" },
+              { src: "/brand2.jpeg", alt: "Blue Mountain Sports", href: "https://bluemountainsports.hk/" },
+              { src: "/brand3.jpeg", alt: "Spider Outdoor", href: "https://spideroutdoor.com/" },
+            ].map((s, i) => (
+              <a key={i} href={s.href} target="_blank" rel="noopener noreferrer"
+                className="bg-white rounded-sm px-1.5 py-0.5 flex items-center h-4 opacity-50 hover:opacity-100 transition-opacity">
+                <img src={s.src} alt={s.alt} className="h-full w-auto object-contain max-w-12" />
+              </a>
+            ))}
+          </div>
         </div>
 
         {/* Desktop Navigation - Centered */}

@@ -412,7 +412,7 @@ export default function Home() {
       </section>
 
       {/* Sponsors Section */}
-      {/* <section className="py-20 relative z-10 border-t border-white/5">
+      <section className="py-20 relative z-10 border-t border-white/5">
         <div className="container mx-auto px-4">
           <FadeInUp>
             <h2 className="text-center mb-4 text-4xl md:text-5xl font-black uppercase italic tracking-tighter text-white">
@@ -423,128 +423,52 @@ export default function Home() {
             </p>
           </FadeInUp>
 
-          <StaggerContainer className="space-y-12" staggerDelay={0.1}>
-           
-            <StaggerItem>
-              <div className="text-center">
-                <p className="text-xs text-primary font-bold uppercase tracking-widest mb-6">
-                  Title Sponsor
-                </p>
-                <div className="flex justify-center">
-                  <motion.div
-                    className="bg-white/5 border border-white/10 px-12 py-8 hover:border-primary/50 transition-colors"
-                    whileHover={{ scale: 1.02 }}
-                  >
-                    <img
-                      src="https://image.similarpng.com/file/similarpng/very-thumbnail/2020/06/Logo-google-transparent-background-PNG.png"
-                      alt="Google"
-                      className="h-10 md:h-12 w-auto"
-                    />
-                  </motion.div>
-                </div>
-              </div>
-            </StaggerItem>
-
-            <StaggerItem>
-              <div className="text-center">
-                <p className="text-xs text-yellow-500 font-bold uppercase tracking-widest mb-6">
-                  Gold Sponsors
-                </p>
-                <div className="flex flex-wrap justify-center gap-6">
-                  {[
-                    {
-                      name: "Meta",
-                      logo: "https://i.pinimg.com/736x/b7/06/fa/b706fa17832e8854ee125404a655f0df.jpg",
-                    },
-                    {
-                      name: "Pinterest",
-                      logo: "https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png",
-                    },
-                    {
-                      name: "Spotify",
-                      logo: "https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png",
-                    },
-                  ].map((sponsor, i) => (
-                    <motion.div
-                      key={i}
-                      className="bg-white/5 border border-white/10 px-8 py-6 hover:border-yellow-500/50 transition-colors"
-                      whileHover={{ scale: 1.02 }}
-                    >
-                      <img
-                        src={sponsor.logo}
-                        alt={sponsor.name}
-                        className="h-8 md:h-10 w-auto max-w-30 object-contain"
-                      />
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </StaggerItem>
-
-            <StaggerItem>
-              <div className="text-center">
-                <p className="text-xs text-gray-400 font-bold uppercase tracking-widest mb-6">
-                  Silver Sponsors
-                </p>
-                <div className="flex flex-wrap justify-center gap-4">
-                  {[
-                    {
-                      name: "WhatsApp",
-                      logo: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg",
-                    },
-                    {
-                      name: "Slack",
-                      logo: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg",
-                    },
-                    {
-                      name: "Notion",
-                      logo: "https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png",
-                    },
-                    {
-                      name: "Figma",
-                      logo: "https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg",
-                    },
-                  ].map((sponsor, i) => (
-                    <motion.div
-                      key={i}
-                      className="bg-white/5 border border-white/10 px-6 py-4 hover:border-gray-400/50 transition-colors"
-                      whileHover={{ scale: 1.02 }}
-                    >
-                      <img
-                        src={sponsor.logo}
-                        alt={sponsor.name}
-                        className="h-6 md:h-8 w-auto max-w-25 object-contain"
-                      />
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </StaggerItem>
+          <StaggerContainer className="flex flex-wrap justify-center items-center gap-10" staggerDelay={0.1}>
+            {[
+              { src: '/sponsor1.jpeg', alt: 'Escape Wanchai Hong Kong', href: 'https://www.escapehk.com/' },
+              { src: '/sponsor2.jpeg', alt: 'Bar 109 Wanchai Hong Kong', href: 'https://www.bar109.hk/' },
+              { src: '/sponsor3.jpeg', alt: 'Gurkha Force Security Limited', href: 'https://www.gurkhahk.site/' },
+            ].map((sponsor, i) => (
+              <StaggerItem key={i}>
+                <motion.a
+                  href={sponsor.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white rounded-sm p-6 flex items-center justify-center w-64 h-40"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <img src={sponsor.src} alt={sponsor.alt} className="max-w-full max-h-full object-contain" />
+                </motion.a>
+              </StaggerItem>
+            ))}
           </StaggerContainer>
 
           <FadeInUp delay={0.3}>
-            <div className="mt-16 pt-10 border-t border-white/5 flex justify-center">
-              <div className="flex flex-col items-center">
-                {/* <Link
-                  to="/sponsorship"
-                  className="btn btn-outline text-xs px-6 py-3 border-white/20 text-gray-400 hover:text-white hover:border-primary hover:bg-primary/10"
-                >
-                  <span>Become a Sponsor</span>
-           
-                <p className="text-[10px] text-gray-600 mt-3 uppercase tracking-widest">
-                  Partner with us
-                </p>
-                <a
-                  href="mailto:hknutra@gmail.com"
-                  className="text-sm text-primary hover:text-white transition-colors mt-2"
-                >
-                  hknutra@gmail.com
-                </a>
-              </div>
-            </div>
+            <p className="text-center text-[10px] uppercase tracking-widest text-gray-600 font-bold mt-16 mb-8">Brand Partners</p>
           </FadeInUp>
+          <StaggerContainer className="flex flex-wrap justify-center items-center gap-8" staggerDelay={0.1}>
+            {[
+              { src: '/brand1.jpeg', alt: 'T8', href: 'https://t8.run/' },
+              { src: '/brand2.jpeg', alt: 'Blue Mountain Sports', href: 'https://bluemountainsports.hk/' },
+              { src: '/brand3.jpeg', alt: 'Spider Outdoor', href: 'https://spideroutdoor.com/' },
+            ].map((brand, i) => (
+              <StaggerItem key={i}>
+                <motion.a
+                  href={brand.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white rounded-sm p-4 flex items-center justify-center w-48 h-28"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <img src={brand.src} alt={brand.alt} className="max-w-full max-h-full object-contain" />
+                </motion.a>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
         </div>
-      </section> */}
+      </section>
 
       {/* FAQ Section */}
       <section className="py-20 pb-32 relative z-10 bg-black/30 backdrop-blur-[2px] border-t border-white/5">
