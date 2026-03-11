@@ -49,14 +49,22 @@ const Header = () => {
               { src: "/sponsor1.jpeg", alt: "Escape Wanchai", href: "https://www.escapehk.com/" },
               { src: "/sponsor2.jpeg", alt: "Bar 109 Wanchai", href: "https://www.bar109.hk/" },
               { src: "/sponsor3.jpeg", alt: "Gurkha Force Security Limited", href: "https://www.gurkhahk.site/" },
+              { src: "/sponsor4.jpeg", alt: "Migalpha", href: "https://www.migalpha.com/" },
+              { src: "/sponsor5.jpeg", alt: "Sponsor 5" },
               { src: "/brand1.jpeg", alt: "T8", href: "https://t8.run/" },
               { src: "/brand2.jpeg", alt: "Blue Mountain Sports", href: "https://bluemountainsports.hk/" },
               { src: "/brand3.jpeg", alt: "Spider Outdoor", href: "https://spideroutdoor.com/" },
             ].map((s, i) => (
-              <a key={i} href={s.href} target="_blank" rel="noopener noreferrer"
-                className="bg-white rounded-sm px-1.5 py-0.5 flex items-center h-4 opacity-50 hover:opacity-100 transition-opacity">
-                <img src={s.src} alt={s.alt} className="h-full w-auto object-contain max-w-12" />
-              </a>
+              s.href ? (
+                <a key={i} href={s.href} target="_blank" rel="noopener noreferrer"
+                  className="bg-white rounded-sm px-1.5 py-0.5 flex items-center h-4 opacity-50 hover:opacity-100 transition-opacity">
+                  <img src={s.src} alt={s.alt} className="h-full w-auto object-contain max-w-12" />
+                </a>
+              ) : (
+                <div key={i} className="bg-white rounded-sm px-1.5 py-0.5 flex items-center h-4 opacity-50">
+                  <img src={s.src} alt={s.alt} className="h-full w-auto object-contain max-w-12" />
+                </div>
+              )
             ))}
           </div>
         </div>

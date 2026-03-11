@@ -221,10 +221,18 @@ const Footer = () => {
               { src: '/sponsor1.jpeg', alt: 'Escape Wanchai', href: 'https://www.escapehk.com/' },
               { src: '/sponsor2.jpeg', alt: 'Bar 109 Wanchai', href: 'https://www.bar109.hk/' },
               { src: '/sponsor3.jpeg', alt: 'Gurkha Force Security Limited', href: 'https://www.gurkhahk.site/' },
+              { src: '/sponsor4.jpeg', alt: 'Migalpha', href: 'https://www.migalpha.com/' },
+              { src: '/sponsor5.jpeg', alt: 'Sponsor 5' },
             ].map((s, i) => (
-              <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" className="bg-white/90 rounded-sm px-4 py-2 flex items-center justify-center h-10 opacity-70 hover:opacity-100 transition-opacity">
-                <img src={s.src} alt={s.alt} className="h-full w-auto object-contain max-w-[100px]" />
-              </a>
+              s.href ? (
+                <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" className="bg-white/90 rounded-sm px-4 py-2 flex items-center justify-center h-10 opacity-70 hover:opacity-100 transition-opacity">
+                  <img src={s.src} alt={s.alt} className="h-full w-auto object-contain max-w-[100px]" />
+                </a>
+              ) : (
+                <div key={i} className="bg-white/90 rounded-sm px-4 py-2 flex items-center justify-center h-10 opacity-70">
+                  <img src={s.src} alt={s.alt} className="h-full w-auto object-contain max-w-[100px]" />
+                </div>
+              )
             ))}
           </div>
           <p className="text-[10px] uppercase tracking-widest text-gray-600 font-bold mt-4">Brand Partners</p>

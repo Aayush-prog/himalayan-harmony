@@ -30,11 +30,19 @@ export default function SponsorshipPage() {
                             { src: '/sponsor1.jpeg', alt: 'Escape Wanchai Hong Kong', href: 'https://www.escapehk.com/' },
                             { src: '/sponsor2.jpeg', alt: 'Bar 109 Wanchai Hong Kong', href: 'https://www.bar109.hk/' },
                             { src: '/sponsor3.jpeg', alt: 'Gurkha Force Security Limited', href: 'https://www.gurkhahk.site/' },
+                            { src: '/sponsor4.jpeg', alt: 'Migalpha', href: 'https://www.migalpha.com/' },
+                            { src: '/sponsor5.jpeg', alt: 'Sponsor 5' },
                         ].map((sponsor, idx) => (
                             <StaggerItem key={idx}>
-                                <a href={sponsor.href} target="_blank" rel="noopener noreferrer" className="bg-white rounded-sm p-6 flex items-center justify-center w-64 h-40 hover:scale-105 transition-transform">
-                                    <img src={sponsor.src} alt={sponsor.alt} className="max-w-full max-h-full object-contain" />
-                                </a>
+                                {sponsor.href ? (
+                                    <a href={sponsor.href} target="_blank" rel="noopener noreferrer" className="bg-white rounded-sm p-6 flex items-center justify-center w-64 h-40 hover:scale-105 transition-transform">
+                                        <img src={sponsor.src} alt={sponsor.alt} className="max-w-full max-h-full object-contain" />
+                                    </a>
+                                ) : (
+                                    <div className="bg-white rounded-sm p-6 flex items-center justify-center w-64 h-40">
+                                        <img src={sponsor.src} alt={sponsor.alt} className="max-w-full max-h-full object-contain" />
+                                    </div>
+                                )}
                             </StaggerItem>
                         ))}
                     </StaggerContainer>
