@@ -222,7 +222,8 @@ const Footer = () => {
               { src: '/sponsor2.jpeg', alt: 'Bar 109 Wanchai', href: 'https://www.bar109.hk/' },
               { src: '/sponsor3.jpeg', alt: 'Gurkha Force Security Limited', href: 'https://www.gurkhahk.site/' },
               { src: '/sponsor4.jpeg', alt: 'Migalpha', href: 'https://www.migalpha.com/' },
-              { src: '/sponsor5.jpeg', alt: 'Sponsor 5' },
+              { src: '/sponsor5.jpeg', alt: 'Sponsor 5', href: 'https://www.facebook.com/profile.php?id=100085711218232' },
+              { src: '/sponsor6.png', alt: 'Nepal Intrepid Treks', href: 'https://www.nepalintrepidtreks.com/' },
             ].map((s, i) => (
               s.href ? (
                 <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" className="bg-white/90 rounded-sm px-4 py-2 flex items-center justify-center h-10 opacity-70 hover:opacity-100 transition-opacity">

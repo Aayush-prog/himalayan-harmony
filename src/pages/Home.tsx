@@ -429,7 +429,8 @@ export default function Home() {
               { src: '/sponsor2.jpeg', alt: 'Bar 109 Wanchai Hong Kong', href: 'https://www.bar109.hk/' },
               { src: '/sponsor3.jpeg', alt: 'Gurkha Force Security Limited', href: 'https://www.gurkhahk.site/' },
               { src: '/sponsor4.jpeg', alt: 'Migalpha', href: 'https://www.migalpha.com/' },
-              { src: '/sponsor5.jpeg', alt: 'Sponsor 5' },
+              { src: '/sponsor5.jpeg', alt: 'Sponsor 5', href: 'https://www.facebook.com/profile.php?id=100085711218232' },
+              { src: '/sponsor6.png', alt: 'Nepal Intrepid Treks', href: 'https://www.nepalintrepidtreks.com/' },
             ].map((sponsor, i) => (
               <StaggerItem key={i}>
                 {sponsor.href ? (
