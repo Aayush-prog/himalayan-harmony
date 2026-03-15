@@ -52,6 +52,7 @@ const Header = () => {
               { src: "/sponsor4.jpeg", alt: "Migalpha", href: "https://www.migalpha.com/" },
               { src: "/sponsor5.jpeg", alt: "Sponsor 5", href: "https://www.facebook.com/profile.php?id=100085711218232" },
               { src: "/sponsor6.png", alt: "Nepal Intrepid Treks", href: "https://www.nepalintrepidtreks.com/" },
+              { src: "/sponsor7.jpeg", alt: "Collabco", href: "https://www.collabco.io" },
               { src: "/brand1.jpeg", alt: "T8", href: "https://t8.run/" },
               { src: "/brand2.jpeg", alt: "Blue Mountain Sports", href: "https://bluemountainsports.hk/" },
               { src: "/brand3.jpeg", alt: "Spider Outdoor", href: "https://spideroutdoor.com/" },

@@ -33,6 +33,7 @@ export default function SponsorshipPage() {
                             { src: '/sponsor4.jpeg', alt: 'Migalpha', href: 'https://www.migalpha.com/' },
                             { src: '/sponsor5.jpeg', alt: 'Sponsor 5', href: 'https://www.facebook.com/profile.php?id=100085711218232' },
                             { src: '/sponsor6.png', alt: 'Nepal Intrepid Treks', href: 'https://www.nepalintrepidtreks.com/' },
+                            { src: '/sponsor7.jpeg', alt: 'Collabco', href: 'https://www.collabco.io' },
                         ].map((sponsor, idx) => (
                             <StaggerItem key={idx}>
                                 {sponsor.href ? (
