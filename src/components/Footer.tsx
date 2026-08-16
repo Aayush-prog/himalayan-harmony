@@ -37,7 +37,7 @@ const Footer = () => {
                 <span className="text-primary">HARMONY</span>
               </motion.h3>
             </Link>
-            <div className="flex items-center gap-2 text-xs text-gray-400">
+            {/* <div className="flex items-center gap-2 text-xs text-gray-400">
               <a
                 href="https://blynt.tech"
                 target="_blank"
@@ -66,7 +66,7 @@ const Footer = () => {
                   Blynt Tech
                 </span>
               </a>
-            </div>
+            </div> */}
 
             <p className="text-gray-400 leading-relaxed font-light text-xs md:text-sm">
               Push your limits in the heart of the mountains. The ultimate
@@ -215,37 +215,104 @@ const Footer = () => {
 
         {/* Sponsors Strip */}
         <div className="py-6 border-t border-white/5 flex flex-col items-center gap-4">
-          <p className="text-[10px] uppercase tracking-widest text-gray-600 font-bold">Proudly Sponsored By</p>
+          <p className="text-[10px] uppercase tracking-widest text-gray-600 font-bold">
+            Proudly Sponsored By
+          </p>
           <div className="flex flex-wrap justify-center items-center gap-6">
             {[
-              { src: '/sponsor1.jpeg', alt: 'Escape Wanchai', href: 'https://www.escapehk.com/' },
-              { src: '/sponsor2.jpeg', alt: 'Bar 109 Wanchai', href: 'https://www.bar109.hk/' },
-              { src: '/sponsor3.jpeg', alt: 'Gurkha Force Security Limited', href: 'https://www.gurkhahk.site/' },
-              { src: '/sponsor4.jpeg', alt: 'Migalpha', href: 'https://www.migalpha.com/' },
-              { src: '/sponsor5.jpeg', alt: 'Sponsor 5', href: 'https://www.facebook.com/profile.php?id=100085711218232' },
-              { src: '/sponsor6.png', alt: 'Nepal Intrepid Treks', href: 'https://www.nepalintrepidtreks.com/' },
-              { src: '/sponsor7.jpeg', alt: 'Collabco', href: 'https://www.collabco.io' },
-            ].map((s, i) => (
+              {
+                src: "/sponsor1.jpeg",
+                alt: "Escape Wanchai",
+                href: "https://www.escapehk.com/",
+              },
+              {
+                src: "/sponsor2.jpeg",
+                alt: "Bar 109 Wanchai",
+                href: "https://www.bar109.hk/",
+              },
+              {
+                src: "/sponsor3.jpeg",
+                alt: "Gurkha Force Security Limited",
+                href: "https://www.gurkhahk.site/",
+              },
+              {
+                src: "/sponsor4.jpeg",
+                alt: "Migalpha",
+                href: "https://www.migalpha.com/",
+              },
+              {
+                src: "/sponsor5.jpeg",
+                alt: "Sponsor 5",
+                href: "https://www.facebook.com/profile.php?id=100085711218232",
+              },
+              {
+                src: "/sponsor6.png",
+                alt: "Nepal Intrepid Treks",
+                href: "https://www.nepalintrepidtreks.com/",
+              },
+              {
+                src: "/sponsor7.jpeg",
+                alt: "Collabco",
+                href: "https://www.collabco.io",
+              },
+            ].map((s, i) =>
               s.href ? (
-                <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" className="bg-white/90 rounded-sm px-4 py-2 flex items-center justify-center h-10 opacity-70 hover:opacity-100 transition-opacity">
-                  <img src={s.src} alt={s.alt} className="h-full w-auto object-contain max-w-[100px]" />
+                <a
+                  key={i}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white/90 rounded-sm px-4 py-2 flex items-center justify-center h-10 opacity-70 hover:opacity-100 transition-opacity"
+                >
+                  <img
+                    src={s.src}
+                    alt={s.alt}
+                    className="h-full w-auto object-contain max-w-[100px]"
+                  />
                 </a>
               ) : (
-                <div key={i} className="bg-white/90 rounded-sm px-4 py-2 flex items-center justify-center h-10 opacity-70">
-                  <img src={s.src} alt={s.alt} className="h-full w-auto object-contain max-w-[100px]" />
+                <div
+                  key={i}
+                  className="bg-white/90 rounded-sm px-4 py-2 flex items-center justify-center h-10 opacity-70"
+                >
+                  <img
+                    src={s.src}
+                    alt={s.alt}
+                    className="h-full w-auto object-contain max-w-[100px]"
+                  />
                 </div>
-              )
-            ))}
+              ),
+            )}
           </div>
-          <p className="text-[10px] uppercase tracking-widest text-gray-600 font-bold mt-4">Brand Partners</p>
+          <p className="text-[10px] uppercase tracking-widest text-gray-600 font-bold mt-4">
+            Brand Partners
+          </p>
           <div className="flex flex-wrap justify-center items-center gap-4">
             {[
-              { src: '/brand1.jpeg', alt: 'T8', href: 'https://t8.run/' },
-              { src: '/brand2.jpeg', alt: 'Blue Mountain Sports', href: 'https://bluemountainsports.hk/' },
-              { src: '/brand3.jpeg', alt: 'Spider Outdoor', href: 'https://spideroutdoor.com/' },
+              { src: "/brand1.jpeg", alt: "T8", href: "https://t8.run/" },
+              {
+                src: "/brand2.jpeg",
+                alt: "Blue Mountain Sports",
+                href: "https://bluemountainsports.hk/",
+              },
+              {
+                src: "/brand3.jpeg",
+                alt: "Spider Outdoor",
+                href: "https://spideroutdoor.com/",
+              },
             ].map((s, i) => (
-              <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" className="bg-white/90 rounded-sm px-3 py-1 flex items-center justify-center h-8 opacity-70 hover:opacity-100 transition-opacity">
-                <img src={s.src} alt={s.alt} className="h-full w-auto object-contain max-w-[80px]" />
+              <a
+                key={i}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white/90 rounded-sm px-3 py-1 flex items-center justify-center h-8 opacity-70 hover:opacity-100 transition-opacity"
+              >
+                <img
+                  src={s.src}
+                  alt={s.alt}
+                  className="h-full w-auto object-contain max-w-[80px]"
+                />
               </a>
             ))}
           </div>

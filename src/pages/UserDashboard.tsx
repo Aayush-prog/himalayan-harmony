@@ -29,7 +29,7 @@ export default function UserDashboard() {
                         <span className="h-3 w-3 bg-red-500 rounded-full shadow-[0_0_10px_rgba(239,68,68,0.5)] animate-pulse"></span>
                         <span className="text-gray-300 font-medium">You are not currently registered for any race.</span>
                     </div>
-                    <button className="btn btn-primary relative z-10 shadow-lg shadow-primary/20">Register for 2026</button>
+                    <button className="btn btn-primary relative z-10 shadow-lg shadow-primary/20">Register for 2027</button>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

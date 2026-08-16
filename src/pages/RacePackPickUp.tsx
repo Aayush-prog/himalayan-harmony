@@ -33,7 +33,7 @@ const RacePackPickUp = () => {
                             <div className="space-y-4 mb-8">
                                 <div className="flex flex-col md:flex-row md:items-center justify-between p-4 bg-black/40 border border-white/5 hover:border-primary/50 transition-colors group">
                                     <span className="text-gray-400 font-bold uppercase text-xs tracking-widest">Date</span>
-                                    <span className="text-lg md:text-xl font-black text-white italic group-hover:text-primary transition-colors">Feb 4-7, 2026 (Wed - Fri)</span>
+                                    <span className="text-lg md:text-xl font-black text-white italic group-hover:text-primary transition-colors">Feb 4-7, 2027 (Wed - Fri)</span>
                                 </div>
                                 <div className="flex flex-col md:flex-row md:items-center justify-between p-4 bg-black/40 border border-white/5 hover:border-primary/50 transition-colors group">
                                     <span className="text-gray-400 font-bold uppercase text-xs tracking-widest">Time</span>

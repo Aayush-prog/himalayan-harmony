@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Lock } from "lucide-react";
 import Countdown from "@/components/Countdown";
 import { usePageTitle } from "@/hooks/usePageTitle";
+import { isRegistrationOpen, REGISTRATION_OPEN_LABEL } from "@/config/registration";
 import {
   FadeInUp,
   StaggerContainer,
@@ -62,7 +64,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            <Countdown targetDate="2026-03-22T08:00:00" />
+            <Countdown targetDate="2027-03-28T08:00:00" />
           </motion.div>
 
           <motion.div
@@ -125,7 +127,7 @@ export default function Home() {
             </TextReveal>
             <FadeInUp delay={0.2}>
               <p className="text-lg md:text-xl text-blue-100/80 mb-12 leading-relaxed font-medium">
-                Himalayan Harmony – 2026 is an ultra-endurance race set in Hong
+                Himalayan Harmony – 2027 is an ultra-endurance race set in Hong
                 Kong's highland scenery, inspired by Nepal's formidable trails.
                 Starting at Tai Mo Shan Rotary Park, runners will be challenged
                 by the ascents and descents of the most celebrated MacLehose and
@@ -318,7 +320,7 @@ export default function Home() {
                 </div>
 
                 <p className="text-xs text-yellow-400 mb-4">
-                  Early Bird discount available until Feb 5, 2026
+                  Early Bird discount available until Feb 5, 2027
                 </p>
 
                 <Link
@@ -382,7 +384,7 @@ export default function Home() {
                 </div>
 
                 <p className="text-xs text-yellow-400 mb-4">
-                  Early Bird discount available until Feb 5, 2026
+                  Early Bird discount available until Feb 5, 2027
                 </p>
 
                 <Link
@@ -398,14 +400,29 @@ export default function Home() {
 
           <FadeInUp delay={0.3}>
             <div className="text-center mt-12">
-              <Link to="/registration" className="relative group inline-block">
-                <span className="absolute inset-0 bg-[#2a6bf2] -skew-x-12 translate-x-1.5 translate-y-1.5 border border-white/10"></span>
-                <span className="relative block bg-[#ff8fa3] -skew-x-12 px-10 py-4 hover:-translate-y-0.5 transition-transform border border-white/10">
-                  <span className="block font-black italic uppercase text-[#0a193c] tracking-widest text-sm">
-                    Register Now
+              {isRegistrationOpen() ? (
+                <Link to="/registration" className="relative group inline-block">
+                  <span className="absolute inset-0 bg-[#2a6bf2] -skew-x-12 translate-x-1.5 translate-y-1.5 border border-white/10"></span>
+                  <span className="relative block bg-[#ff8fa3] -skew-x-12 px-10 py-4 hover:-translate-y-0.5 transition-transform border border-white/10">
+                    <span className="block font-black italic uppercase text-[#0a193c] tracking-widest text-sm">
+                      Register Now
+                    </span>
                   </span>
-                </span>
-              </Link>
+                </Link>
+              ) : (
+                <div
+                  className="relative inline-block"
+                  aria-disabled="true"
+                  title={`Registration opens ${REGISTRATION_OPEN_LABEL}`}
+                >
+                  <span className="absolute inset-0 bg-white/5 -skew-x-12 translate-x-1.5 translate-y-1.5 border border-white/10"></span>
+                  <span className="relative block bg-[#243b64] -skew-x-12 px-10 py-4 border border-white/10 cursor-not-allowed">
+                    <span className="flex items-center justify-center gap-2 font-black italic uppercase text-gray-300 tracking-widest text-sm">
+                      <Lock size={15} /> Opens {REGISTRATION_OPEN_LABEL}
+                    </span>
+                  </span>
+                </div>
+              )}
             </div>
           </FadeInUp>
         </div>
@@ -507,7 +524,7 @@ export default function Home() {
               },
               {
                 q: "What is the refund policy?",
-                a: "DO you really want to quit?If yes then 50% refund is available until Feb 10th, 2026. No refunds after that date. Deferrals allowed for medical reasons.",
+                a: "DO you really want to quit?If yes then 50% refund is available until Feb 10th, 2027. No refunds after that date. Deferrals allowed for medical reasons.",
               },
             ].map((faq, index) => (
               <StaggerItem key={index}>

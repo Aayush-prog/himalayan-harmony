@@ -1,7 +1,49 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X, Lock } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import {
+  REGISTRATION_URL,
+  REGISTRATION_OPEN_LABEL,
+  isRegistrationOpen,
+} from "@/config/registration";
+
+// "Register Now" CTA. Before registration opens it renders as a disabled,
+// non-clickable button reading "Opens Oct 1, 2026" to signal when it unlocks.
+const RegisterCta = ({ full = false }: { full?: boolean }) => {
+  if (isRegistrationOpen()) {
+    return (
+      <a
+        href={REGISTRATION_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`relative group inline-block ${full ? "w-full" : ""}`}
+      >
+        <span className="absolute inset-0 bg-[#2a6bf2] transform -skew-x-12 translate-x-1.5 translate-y-1.5 border border-white/10"></span>
+        <span className="relative block bg-[#ff8fa3] transform -skew-x-12 px-8 py-3 hover:-translate-y-0.5 transition-transform border border-white/10 text-center">
+          <span className="block font-black italic uppercase text-[#0a193c] tracking-widest text-sm">
+            Register Now
+          </span>
+        </span>
+      </a>
+    );
+  }
+
+  return (
+    <div
+      className={`relative inline-block ${full ? "w-full" : ""}`}
+      aria-disabled="true"
+      title={`Registration opens ${REGISTRATION_OPEN_LABEL}`}
+    >
+      <span className="absolute inset-0 bg-white/5 transform -skew-x-12 translate-x-1.5 translate-y-1.5 border border-white/10"></span>
+      <span className="relative block bg-[#243b64] transform -skew-x-12 px-8 py-3 border border-white/10 cursor-not-allowed text-center">
+        <span className="flex items-center justify-center gap-2 font-black italic uppercase text-gray-300 tracking-widest text-sm">
+          <Lock size={14} /> Opens {REGISTRATION_OPEN_LABEL}
+        </span>
+      </span>
+    </div>
+  );
+};
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -133,19 +175,7 @@ const Header = () => {
           >
             Login
           </Link> */}
-          <a
-            href="https://raceresults.com.hk/event/446"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="relative group inline-block"
-          >
-            <span className="absolute inset-0 bg-[#2a6bf2] transform -skew-x-12 translate-x-1.5 translate-y-1.5 border border-white/10"></span>
-            <span className="relative block bg-[#ff8fa3] transform -skew-x-12 px-8 py-3 hover:-translate-y-0.5 transition-transform border border-white/10">
-              <span className="block font-black italic uppercase text-[#0a193c] tracking-widest text-sm">
-                Register Now
-              </span>
-            </span>
-          </a>
+          <RegisterCta />
         </div>
 
         {/* Mobile Menu Button */}
@@ -230,19 +260,7 @@ const Header = () => {
                 >
                   Login
                 </Link> */}
-                <a
-                  href="https://raceresults.com.hk/event/446"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative group inline-block"
-                >
-                  <span className="absolute inset-0 bg-[#2a6bf2] transform -skew-x-12 translate-x-1.5 translate-y-1.5 border border-white/10"></span>
-                  <span className="relative block bg-[#ff8fa3] transform -skew-x-12 px-8 py-3 hover:-translate-y-0.5 transition-transform border border-white/10">
-                    <span className="block font-black italic uppercase text-[#0a193c] tracking-widest text-sm">
-                      Register Now
-                    </span>
-                  </span>
-                </a>
+                <RegisterCta full />
               </div>
             </nav>
           </motion.div>

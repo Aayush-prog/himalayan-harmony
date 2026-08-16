@@ -6,32 +6,32 @@ interface CountdownProps {
     targetDate: string; // ISO string e.g., "2026-03-28T00:00:00"
 }
 
+const getTimeLeft = (targetDate: string) => {
+    const difference = new Date(targetDate).getTime() - Date.now();
+    if (difference <= 0) {
+        return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    }
+    return {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+        seconds: Math.floor((difference % (1000 * 60)) / 1000),
+    };
+};
+
 export default function Countdown({ targetDate }: CountdownProps) {
-    const [timeLeft, setTimeLeft] = useState({
-        days: 0,
-        hours: 0,
-        minutes: 0,
-        seconds: 0
-    });
+    // Initialise from the target immediately so the timer never flashes 0s on mount.
+    const [timeLeft, setTimeLeft] = useState(() => getTimeLeft(targetDate));
 
     useEffect(() => {
-        const target = new Date(targetDate).getTime();
+        setTimeLeft(getTimeLeft(targetDate));
 
         const interval = setInterval(() => {
-            const now = new Date().getTime();
-            const difference = target - now;
-
-            if (difference <= 0) {
+            const next = getTimeLeft(targetDate);
+            setTimeLeft(next);
+            if (next.days === 0 && next.hours === 0 && next.minutes === 0 && next.seconds === 0) {
                 clearInterval(interval);
-                return;
             }
-
-            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-            setTimeLeft({ days, hours, minutes, seconds });
         }, 1000);
 
         return () => clearInterval(interval);

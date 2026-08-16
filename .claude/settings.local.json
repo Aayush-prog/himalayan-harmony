@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(npm run build:*)",
-      "Bash(pdftoppm -png -r 300 -singlefile /Users/bombhu/Documents/Work/himalayan-harmony/public/sponsor6.pdf /Users/bombhu/Documents/Work/himalayan-harmony/public/sponsor6)"
+      "Bash(pdftoppm -png -r 300 -singlefile /Users/bombhu/Documents/Work/himalayan-harmony/public/sponsor6.pdf /Users/bombhu/Documents/Work/himalayan-harmony/public/sponsor6)",
+      "WebFetch(domain:results.racetimingsolutions.com)",
+      "Bash(pkill -f \"vite\")"
     ]
   }
 }

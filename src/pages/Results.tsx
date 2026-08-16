@@ -1,175 +1,291 @@
+import { useMemo, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Trophy, Search, ExternalLink, Award, Flag } from 'lucide-react';
 import PageHeader from '@/components/PageHeader';
-import { motion } from 'framer-motion';
-import { Clock, Calendar, Trophy } from 'lucide-react';
 import { usePageTitle } from '@/hooks/usePageTitle';
+import {
+    RESULTS_50KM,
+    RESULTS_12KM,
+    EVENT_DATE,
+    OFFICIAL_RESULTS_URL,
+    type RaceResult,
+} from '@/data/results2026';
+
+type RaceKey = '50KM' | '12KM';
+
+const RACES: Record<RaceKey, RaceResult[]> = {
+    '50KM': RESULTS_50KM,
+    '12KM': RESULTS_12KM,
+};
+
+const statusBadge: Record<string, string> = {
+    DNF: 'text-red-400 border-red-500/40 bg-red-500/10',
+    DNS: 'text-gray-400 border-white/10 bg-white/5',
+};
+
+const podiumStyles = [
+    // index 0 => 1st (center, tallest); shared level base, stepped tops
+    { rank: 1, color: '#FFD700', label: 'Champion', order: 'md:order-2', height: 'md:h-[340px]' },
+    { rank: 2, color: '#C0C0C0', label: 'Runner-up', order: 'md:order-1', height: 'md:h-[300px]' },
+    { rank: 3, color: '#CD7F32', label: 'Third', order: 'md:order-3', height: 'md:h-[264px]' },
+];
 
 export default function ResultsPage() {
     usePageTitle('Results');
+    const [race, setRace] = useState<RaceKey>('50KM');
+    const [query, setQuery] = useState('');
 
-    return (
-        <div className="flex flex-col min-h-screen">
-            <PageHeader title="Race Results" subtitle="Official Race Classifications" bgImage="/IMG_8069.JPG" />
+    const all = RACES[race];
 
-            <div className="container mx-auto px-4 py-16 flex-1 flex items-center justify-center">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="text-center max-w-2xl"
-                >
-                    <motion.div
-                        className="mx-auto w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mb-8 border border-primary/30"
-                        animate={{ scale: [1, 1.05, 1] }}
-                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    >
-                        <Trophy className="w-12 h-12 text-primary" />
-                    </motion.div>
+    const finishers = useMemo(() => all.filter((r) => r.status === 'FIN'), [all]);
+    const podium = finishers.slice(0, 3);
 
-                    <h2 className="text-3xl md:text-4xl font-black text-white uppercase italic mb-4">
-                        Results Coming Soon
-                    </h2>
-                    <p className="text-gray-400 text-lg mb-8">
-                        Race results will be published here after the event is completed.
-                    </p>
-
-                    <div className="bg-[#0a193c] border border-white/10 p-6 md:p-8 inline-block">
-                        <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
-                            <div className="flex items-center gap-3">
-                                <Calendar className="w-5 h-5 text-primary" />
-                                <div className="text-left">
-                                    <p className="text-xs text-gray-500 uppercase tracking-widest">Race Date</p>
-                                    <p className="text-white font-bold">22 March 2026</p>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-3">
-                                <Clock className="w-5 h-5 text-primary" />
-                                <div className="text-left">
-                                    <p className="text-xs text-gray-500 uppercase tracking-widest">Expected Results</p>
-                                    <p className="text-white font-bold">22 March 2026, Evening</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <p className="text-gray-500 text-sm mt-8">
-                        Check back after the race for live results and final standings.
-                    </p>
-                </motion.div>
-            </div>
-        </div>
+    const stats = useMemo(
+        () => ({
+            finishers: finishers.length,
+            dnf: all.filter((r) => r.status === 'DNF').length,
+            dns: all.filter((r) => r.status === 'DNS').length,
+        }),
+        [all, finishers],
     );
-}
 
-/*
-// COMMENTED OUT - Original results page with mock data
-// Will be restored after race completion
-
-import WinnerPodium from '@/components/WinnerPodium';
-import { useMemo } from 'react';
-
-// Generator for mock data
-const generateResults = (count: number) => {
-    const teams = ['CHINA', 'UK', 'USA', 'HONG KONG', 'GERMANY', 'FRANCE', 'NEPAL', 'JAPAN', 'AUSTRALIA'];
-    const names = ['Guo Min', 'Tom Joly', 'Tyler Green', 'You Peiquan', 'Richard Li', 'Hannes Namberger', 'Sange Sherpa', 'Wong Ho Chung', 'Jeff Browning', 'Courtney Dauwalter'];
-
-    return Array.from({ length: count }, (_, i) => {
-        const pos = i + 1;
-        const name = names[Math.floor(Math.random() * names.length)] + (i > 9 ? ` ${i}` : '');
-        const team = teams[Math.floor(Math.random() * teams.length)];
-        const isDNF = Math.random() > 0.9;
-        const time = isDNF ? 'DNF' : `${10 + Math.floor(i / 10)}:${10 + (i % 50)}:${10 + i}`;
-        const cp = isDNF ? `CP${Math.floor(Math.random() * 8)}` : 'Finish';
-        const gap = pos === 1 ? '-' : `+${Math.floor(i * 1.5)}m`;
-        const pts = pos <= 50 ? 51 - pos : 0;
-
-        return { pos, no: 100 + i, name, team, cp, time, gap, pts };
-    });
-};
-
-export default function ResultsPage() {
-    const allResults = useMemo(() => generateResults(100), []);
-
-    const top3 = [
-        { pos: 1, no: 5, name: "Guo Min", team: "CHINA", cp: "Finish", time: "10:38:53", gap: "-", pts: 25 },
-        { pos: 2, no: 12, name: "Tom Joly", team: "UK", cp: "Finish", time: "10:45:10", gap: "+06:17", pts: 18 },
-        { pos: 3, no: 8, name: "Tyler Green", team: "USA", cp: "Finish", time: "10:52:30", gap: "+13:37", pts: 15 },
-    ];
-
-    const podiumWinners = top3;
-    const tableRunners = allResults.slice(3).map(r => ({ ...r, pos: r.pos + 3 }));
+    const filtered = useMemo(() => {
+        const q = query.trim().toLowerCase();
+        if (!q) return all;
+        return all.filter(
+            (r) =>
+                r.name.toLowerCase().includes(q) ||
+                (r.nameZh?.includes(query.trim()) ?? false) ||
+                r.bib.includes(q) ||
+                r.country.toLowerCase().includes(q) ||
+                r.cat.toLowerCase().includes(q),
+        );
+    }, [all, query]);
 
     return (
         <div className="flex flex-col min-h-screen">
-            <PageHeader title="Race Results" subtitle="Live Pro Classifications | 2026 Test Season" />
+            <PageHeader
+                title="Race Results"
+                subtitle={`Himalayan Harmony 2026 · ${EVENT_DATE}`}
+                bgImage="/IMG_8069.JPG"
+            />
 
-            <section className="py-12 bg-background border-b border-white/5">
-                <div className="container mx-auto px-4">
-                    <WinnerPodium winners={podiumWinners} />
-                </div>
-            </section>
-
-            <div className="container mx-auto px-4 py-4 md:py-6">
-                <div className="bg-[#15151e] border-t-4 border-primary shadow-2xl flex flex-col max-h-[600px] md:max-h-[800px] overflow-hidden">
-                    <div className="bg-[#1a1a2e] p-4 md:p-6 border-b border-white/10 flex justify-between items-center shrink-0 z-20 relative">
-                        <div>
-                            <h2 className="text-xl md:text-3xl font-black text-white uppercase tracking-wider italic">2026 Race Results</h2>
-                            <span className="text-xs md:text-sm text-gray-400 font-mono mt-1 block tracking-tight">Live Classifications • {tableRunners.length + 3} Drivers</span>
-                        </div>
-                        <div className="flex gap-2">
-                            <div className="h-2 w-8 bg-red-600 rounded-sm"></div>
-                            <div className="h-2 w-8 bg-white/20 rounded-sm"></div>
-                        </div>
+            <div className="container mx-auto px-4 py-8 md:py-16">
+                {/* Race switcher */}
+                <div className="flex justify-center mb-8 md:mb-12">
+                    <div className="inline-flex bg-black/40 border border-white/10 p-1 skew-x-[-8deg]">
+                        {(Object.keys(RACES) as RaceKey[]).map((key) => (
+                            <button
+                                key={key}
+                                onClick={() => {
+                                    setRace(key);
+                                    setQuery('');
+                                }}
+                                className={`px-8 md:px-12 py-3 text-sm md:text-base font-black uppercase tracking-widest transition-colors ${
+                                    race === key
+                                        ? 'bg-primary text-white'
+                                        : 'text-gray-400 hover:text-white'
+                                }`}
+                            >
+                                <span className="inline-block skew-x-[8deg]">{key}</span>
+                            </button>
+                        ))}
                     </div>
+                </div>
 
-                    <div className="overflow-auto custom-scrollbar px-0">
-                        <table className="w-full text-left border-collapse relative">
-                            <thead className="sticky top-0 z-10 bg-[#15151e]">
-                                <tr className="text-gray-500 text-[10px] md:text-xs uppercase tracking-widest border-b-2 border-primary/50">
-                                    <th className="p-3 md:p-4 w-12 text-center">Pos</th>
-                                    <th className="p-3 md:p-4 w-16 font-bold text-white">No</th>
-                                    <th className="p-3 md:p-4">Driver</th>
-                                    <th className="p-3 md:p-4 hidden md:table-cell text-right">CP</th>
-                                    <th className="p-3 md:p-4 text-right">Time/Retired</th>
-                                    <th className="p-3 md:p-4 hidden sm:table-cell text-right">Gap</th>
-                                    <th className="p-3 md:p-4 text-center">Pts</th>
-                                </tr>
-                            </thead>
-                            <tbody className="divide-y divide-white/5 bg-[#0e0e14]">
-                                {tableRunners.map((driver) => (
-                                    <tr
-                                        key={driver.no}
-                                        className="transition-colors hover:bg-white/5 group h-12 md:h-14"
+                {/* Stats */}
+                <div className="grid grid-cols-3 gap-3 md:gap-6 max-w-3xl mx-auto mb-10 md:mb-16">
+                    {[
+                        { label: 'Finishers', value: stats.finishers, accent: 'text-primary' },
+                        { label: 'DNF', value: stats.dnf, accent: 'text-red-400' },
+                        { label: 'DNS', value: stats.dns, accent: 'text-gray-400' },
+                    ].map((s) => (
+                        <div
+                            key={s.label}
+                            className="bg-[#0a193c] border border-white/10 p-4 md:p-6 text-center"
+                        >
+                            <div className={`text-3xl md:text-5xl font-black ${s.accent}`}>{s.value}</div>
+                            <div className="text-[10px] md:text-xs uppercase tracking-widest text-gray-500 mt-1 font-bold">
+                                {s.label}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Podium */}
+                {podium.length === 3 && (
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={race}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.4 }}
+                            className="flex flex-col md:flex-row md:items-end justify-center gap-4 md:gap-6 mb-12 md:mb-20 max-w-4xl mx-auto"
+                        >
+                            {podium.map((r, i) => {
+                                const style = podiumStyles[i];
+                                return (
+                                    <motion.div
+                                        key={r.bib}
+                                        initial={{ opacity: 0, y: 40 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: i * 0.15, type: 'spring', bounce: 0.4 }}
+                                        className={`relative flex-1 ${style.order} ${style.height}`}
                                     >
-                                        <td className="p-3 md:p-4 text-center text-white font-mono font-bold text-sm">
-                                            {driver.pos}
-                                        </td>
-                                        <td className="p-3 md:p-4 font-mono text-primary font-bold text-sm">{driver.no}</td>
-                                        <td className="p-3 md:p-4">
-                                            <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-3">
-                                                <span className="text-white font-bold text-sm md:text-base uppercase tracking-wide truncate max-w-[120px] md:max-w-none">{driver.name}</span>
-                                                <span className="text-[10px] text-gray-500 uppercase tracking-wider font-bold bg-[#1a1a2e] px-1.5 py-0.5 rounded border border-white/10">{driver.team}</span>
+                                        <div
+                                            className="design-box bg-[#0a193c] border border-white/10 p-5 md:p-6 text-center h-full"
+                                            style={{
+                                                borderTop: `4px solid ${style.color}`,
+                                                boxShadow: `0 0 30px ${style.color}22`,
+                                            }}
+                                        >
+                                            <div
+                                                className="mx-auto w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center mb-3 border"
+                                                style={{ borderColor: style.color }}
+                                            >
+                                                <Trophy className="w-6 h-6 md:w-7 md:h-7" style={{ color: style.color }} />
                                             </div>
-                                        </td>
-                                        <td className="p-3 md:p-4 hidden md:table-cell text-gray-400 font-mono text-xs text-right uppercase">
-                                            {driver.cp}
-                                        </td>
-                                        <td className={`p-3 md:p-4 font-mono font-bold text-right text-sm ${driver.time === 'DNF' ? 'text-red-500' : 'text-white'}`}>
-                                            {driver.time}
-                                        </td>
-                                        <td className="p-3 md:p-4 hidden sm:table-cell font-mono text-gray-500 text-xs text-right">{driver.gap}</td>
-                                        <td className="p-3 md:p-4 text-center font-bold text-white text-sm">{driver.pts}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                                            <div
+                                                className="text-4xl md:text-5xl font-black italic mb-1"
+                                                style={{ color: style.color }}
+                                            >
+                                                {style.rank}
+                                            </div>
+                                            <div className="text-xs uppercase tracking-widest text-gray-500 mb-3 font-bold">
+                                                {style.label}
+                                            </div>
+                                            <div className="text-white font-black text-base md:text-lg uppercase tracking-wide leading-tight">
+                                                {r.name}
+                                            </div>
+                                            {r.nameZh && (
+                                                <div className="text-gray-400 text-sm mt-0.5">{r.nameZh}</div>
+                                            )}
+                                            <div className="flex items-center justify-center gap-2 mt-3 text-[10px] uppercase tracking-wider">
+                                                <span className="bg-white/10 text-gray-300 px-2 py-0.5 rounded border border-white/10 font-bold">
+                                                    {r.cat}
+                                                </span>
+                                                <span className="text-primary font-bold flex items-center gap-1">
+                                                    <Flag size={11} /> {r.country}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </motion.div>
+                                );
+                            })}
+                        </motion.div>
+                    </AnimatePresence>
+                )}
 
-                <div className="mt-8 text-center pt-8">
-                    <p className="text-gray-600 text-sm">Showing top 100 results manually generated for demonstration.</p>
+                {/* Full results */}
+                <div className="max-w-5xl mx-auto">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+                        <h2 className="text-xl md:text-2xl font-black text-white uppercase italic tracking-wider flex items-center gap-3">
+                            <Award className="text-primary" /> {race} Classifications
+                        </h2>
+                        <div className="relative w-full sm:w-72">
+                            <Search
+                                size={16}
+                                className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
+                            />
+                            <input
+                                type="text"
+                                value={query}
+                                onChange={(e) => setQuery(e.target.value)}
+                                placeholder="Search name, bib, country…"
+                                className="w-full bg-black/40 border border-white/10 focus:border-primary/60 outline-none text-white text-sm pl-9 pr-3 py-2.5 placeholder:text-gray-600 transition-colors"
+                            />
+                        </div>
+                    </div>
+
+                    <div className="bg-[#15151e] border-t-4 border-primary shadow-2xl overflow-hidden">
+                        <div className="overflow-x-auto">
+                            <table className="w-full text-left border-collapse">
+                                <thead className="bg-[#1a1a2e]">
+                                    <tr className="text-gray-500 text-[10px] md:text-xs uppercase tracking-widest border-b-2 border-primary/50">
+                                        <th className="p-3 md:p-4 w-14 text-center">Pos</th>
+                                        <th className="p-3 md:p-4 w-16 font-bold text-white">Bib</th>
+                                        <th className="p-3 md:p-4">Name</th>
+                                        <th className="p-3 md:p-4 hidden sm:table-cell">Category</th>
+                                        <th className="p-3 md:p-4 hidden md:table-cell text-center">Cat</th>
+                                        <th className="p-3 md:p-4 text-right">Nat</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y divide-white/5 bg-[#0e0e14]">
+                                    {filtered.map((r) => (
+                                        <tr
+                                            key={r.bib}
+                                            className="transition-colors hover:bg-white/5 h-12 md:h-14"
+                                        >
+                                            <td className="p-3 md:p-4 text-center font-mono font-bold text-sm">
+                                                {r.status === 'FIN' ? (
+                                                    <span className="text-white">{r.pos}</span>
+                                                ) : (
+                                                    <span
+                                                        className={`text-[9px] px-1.5 py-0.5 rounded border font-bold ${statusBadge[r.status]}`}
+                                                    >
+                                                        {r.status}
+                                                    </span>
+                                                )}
+                                            </td>
+                                            <td className="p-3 md:p-4 font-mono text-primary font-bold text-sm">
+                                                {r.bib}
+                                            </td>
+                                            <td className="p-3 md:p-4">
+                                                <div className="flex flex-col leading-tight">
+                                                    <span className="text-white font-bold text-sm md:text-base uppercase tracking-wide">
+                                                        {r.name}
+                                                    </span>
+                                                    <span className="sm:hidden text-[10px] text-gray-500 uppercase tracking-wider mt-0.5">
+                                                        {r.cat} · {r.country}
+                                                    </span>
+                                                    {r.nameZh && (
+                                                        <span className="hidden sm:block text-xs text-gray-500">
+                                                            {r.nameZh}
+                                                        </span>
+                                                    )}
+                                                </div>
+                                            </td>
+                                            <td className="p-3 md:p-4 hidden sm:table-cell">
+                                                <span className="text-[10px] text-gray-400 uppercase tracking-wider font-bold bg-[#1a1a2e] px-2 py-0.5 rounded border border-white/10">
+                                                    {r.cat}
+                                                </span>
+                                            </td>
+                                            <td className="p-3 md:p-4 hidden md:table-cell text-center text-gray-400 font-mono text-sm">
+                                                {r.catPos ?? '—'}
+                                            </td>
+                                            <td className="p-3 md:p-4 text-right text-gray-400 font-mono text-xs uppercase">
+                                                {r.country}
+                                            </td>
+                                        </tr>
+                                    ))}
+                                    {filtered.length === 0 && (
+                                        <tr>
+                                            <td colSpan={6} className="p-8 text-center text-gray-500 text-sm">
+                                                No runners match “{query}”.
+                                            </td>
+                                        </tr>
+                                    )}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-gray-500">
+                        <p>
+                            Showing {filtered.length} of {all.length} entries · finish times available
+                            on the official timing page.
+                        </p>
+                        <a
+                            href={OFFICIAL_RESULTS_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 text-primary hover:text-white font-bold uppercase text-xs tracking-widest transition-colors"
+                        >
+                            Official Results <ExternalLink size={14} />
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     );
 }
-*/

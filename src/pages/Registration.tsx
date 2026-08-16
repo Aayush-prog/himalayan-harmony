@@ -15,17 +15,18 @@ import {
   Lock,
 } from "lucide-react";
 import { usePageTitle } from "@/hooks/usePageTitle";
-
-const REGISTRATION_OPEN_DATE = new Date("2026-01-15T00:00:00");
+import {
+  REGISTRATION_URL,
+  isRegistrationOpen as isRegistrationOpenFn,
+} from "@/config/registration";
 
 export default function RegistrationPage() {
   usePageTitle("Registration");
-  const isRegistrationOpen = new Date() >= REGISTRATION_OPEN_DATE;
-  const REGISTRATION_URL = "https://raceresults.com.hk/event/446";
+  const isRegistrationOpen = isRegistrationOpenFn();
 
   return (
     <div className="flex flex-col overflow-hidden">
-      <PageHeader title="Registration" subtitle="Secure your spot for 2026" bgImage="/IMG_3480.JPG" />
+      <PageHeader title="Registration" subtitle="Secure your spot for 2027" bgImage="/IMG_3480.JPG" />
 
       <div className="container mx-auto px-4 py-8 md:py-16">
         <section className="mb-12 md:mb-24">
@@ -57,7 +58,7 @@ export default function RegistrationPage() {
                     Opening Date
                   </span>
                   <span className="text-2xl md:text-3xl font-black text-primary">
-                    Jan 15, 2026
+                    Oct 1, 2026
                   </span>
                 </motion.div>
                 <motion.div
@@ -71,7 +72,7 @@ export default function RegistrationPage() {
                     Closing Date
                   </span>
                   <span className="text-2xl md:text-3xl font-black text-white">
-                    Mar 19, 2026
+                    Mar 19, 2027
                   </span>
                 </motion.div>
               </div>
@@ -129,7 +130,7 @@ export default function RegistrationPage() {
                     Early Bird: HKD 720
                   </span>
                   <span className="text-yellow-400/70 text-xs block mt-1">
-                    before Feb 5, 2026
+                    before Feb 5, 2027
                   </span>
                 </div>
 
@@ -138,7 +139,7 @@ export default function RegistrationPage() {
                     <span className="flex items-center gap-2">
                       <Calendar size={14} className="text-primary" /> Date
                     </span>
-                    <span className="text-white font-bold">22 March 2026</span>
+                    <span className="text-white font-bold">28 March 2027</span>
                   </div>
                   <div className="flex justify-between border-b border-white/5 pb-2">
                     <span className="flex items-center gap-2">
@@ -194,7 +195,7 @@ export default function RegistrationPage() {
                     "Register Now"
                   ) : (
                     <span className="flex items-center justify-center gap-2">
-                      <Lock size={16} /> Opens Jan 15, 2026
+                      <Lock size={16} /> Opens Oct 1, 2026
                     </span>
                   )}
                 </motion.button>
@@ -235,7 +236,7 @@ export default function RegistrationPage() {
                     Early Bird: HKD 350
                   </span>
                   <span className="text-yellow-400/70 text-xs block mt-1">
-                    before Feb 5, 2026
+                    before Feb 5, 2027
                   </span>
                 </div>
 
@@ -244,7 +245,7 @@ export default function RegistrationPage() {
                     <span className="flex items-center gap-2">
                       <Calendar size={14} className="text-primary" /> Date
                     </span>
-                    <span className="text-white font-bold">22 March 2026</span>
+                    <span className="text-white font-bold">28 March 2027</span>
                   </div>
                   <div className="flex justify-between border-b border-white/5 pb-2">
                     <span className="flex items-center gap-2">
@@ -302,7 +303,7 @@ export default function RegistrationPage() {
                     "Register Now"
                   ) : (
                     <span className="flex items-center justify-center gap-2">
-                      <Lock size={16} /> Opens Jan 15, 2026
+                      <Lock size={16} /> Opens Oct 1, 2026
                     </span>
                   )}
                 </motion.button>
@@ -344,7 +345,7 @@ export default function RegistrationPage() {
                         50% Refund
                       </strong>
                       <span className="text-base md:text-lg text-white">
-                        Before Feb 10, 2026
+                        Before Feb 10, 2027
                       </span>
                     </motion.div>
                     <motion.div
@@ -357,7 +358,7 @@ export default function RegistrationPage() {
                         No Refund
                       </strong>
                       <span className="text-base md:text-lg text-white">
-                        After Feb 10, 2026
+                        After Feb 10, 2027
                       </span>
                     </motion.div>
                   </div>
