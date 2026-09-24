@@ -75,8 +75,8 @@ const raceData = {
     venue: "Rotary Park",
     minAge: "18+ Years",
     registrationFee: "HKD 890",
-    earlyBirdFee: "HKD 820",
-    earlyBirdDeadline: "Feb 5, 2027",
+    earlyBirdFee: "HKD 810",
+    earlyBirdDeadline: "Jan 31, 2027",
     categories: ["18-39", "40-49", "50 above"],
   },
   "26KM": {
@@ -89,7 +89,7 @@ const raceData = {
       {
         name: "Start - Tai Mo Shan",
         dist: "0 km",
-        cutoff: "08:00",
+        cutoff: "08:30",
         refreshment: "Nepalese Cultural Show",
       },
       {
@@ -101,14 +101,14 @@ const raceData = {
     ],
     date: "28 Mar 2027",
     day: "Sunday",
-    startTime: "08:00",
+    startTime: "08:30",
     cutoff: "10h Cut-off",
     location: "Tai Mo Shan",
     venue: "Rotary Park",
     minAge: "18+ Years",
     registrationFee: "HKD 660",
     earlyBirdFee: "HKD 600",
-    earlyBirdDeadline: "Feb 5, 2027",
+    earlyBirdDeadline: "Jan 31, 2027",
     categories: ["18-39", "40-49", "50 above"],
   },
   "12KM": {
@@ -144,9 +144,11 @@ const raceData = {
     location: "Tai Mo Shan",
     venue: "Rotary Park",
     minAge: "8+ Years",
-    registrationFee: "HKD 550",
-    earlyBirdFee: "HKD 510",
-    earlyBirdDeadline: "Feb 5, 2027",
+    registrationFee: "HKD 420",
+    earlyBirdFee: "HKD 380",
+    familyRegistrationFee: "HKD 700",
+    familyEarlyBirdFee: "HKD 630",
+    earlyBirdDeadline: "Jan 31, 2027",
     categories: [
       "Family Run (8-11)",
       "12-13",
@@ -251,29 +253,72 @@ export default function RaceInfoPage() {
               <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/30 translate-x-2 -translate-y-2" />
               <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/30 -translate-x-2 translate-y-2" />
 
-              <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6 border-b border-white/10 pb-4">
-                <h3 className="text-xl md:text-2xl font-black text-white uppercase italic">
-                  Race Details
-                </h3>
-                <div className="flex flex-col items-end">
-                  <span className="text-2xl font-black text-primary">
-                    {content.registrationFee}
-                  </span>
-                  <span className="text-sm text-gray-400 uppercase tracking-widest">
-                    Registration Fee
-                  </span>
-                  <div className="mt-2 text-right">
-                    <span className="text-yellow-400 font-bold">
-                      Early Bird: {content.earlyBirdFee}
-                    </span>
-                    <span className="text-yellow-400/70 text-xs block">
-                      before {content.earlyBirdDeadline}
-                    </span>
-                  </div>
-                  <span className="text-xs text-gray-500 mt-1">
-                    (HKD 50 goes to Bhotekoshi Flood victim orphans)
-                  </span>
+              <div className="flex flex-col gap-4 mb-6 border-b border-white/10 pb-4">
+                <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                  <h3 className="text-xl md:text-2xl font-black text-white uppercase italic">
+                    Race Details
+                  </h3>
+
+                  {"familyRegistrationFee" in content ? (
+                    <div className="grid grid-cols-2 gap-6 w-full md:w-auto">
+                      <div className="text-center">
+                        <span className="text-xs text-gray-400 uppercase tracking-widest block mb-1">
+                          Solo
+                        </span>
+                        <span className="text-2xl font-black text-primary block">
+                          {content.registrationFee}
+                        </span>
+                        <span className="text-yellow-400 font-bold text-sm block mt-1">
+                          Early Bird: {content.earlyBirdFee}
+                        </span>
+                        <span className="text-yellow-400/70 text-xs block">
+                          before {content.earlyBirdDeadline}
+                        </span>
+                      </div>
+                      <div className="text-center border-l border-white/10 pl-6">
+                        <span className="text-xs text-gray-400 uppercase tracking-widest block mb-1">
+                          Family Run
+                        </span>
+                        <span className="text-2xl font-black text-primary block">
+                          {content.familyRegistrationFee}
+                        </span>
+                        <span className="text-yellow-400 font-bold text-sm block mt-1">
+                          Early Bird: {content.familyEarlyBirdFee}
+                        </span>
+                        <span className="text-yellow-400/70 text-xs block">
+                          before {content.earlyBirdDeadline}
+                        </span>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="flex flex-col items-end">
+                      <span className="text-2xl font-black text-primary">
+                        {content.registrationFee}
+                      </span>
+                      <span className="text-sm text-gray-400 uppercase tracking-widest">
+                        Registration Fee
+                      </span>
+                      <div className="mt-2 text-right">
+                        <span className="text-yellow-400 font-bold">
+                          Early Bird: {content.earlyBirdFee}
+                        </span>
+                        <span className="text-yellow-400/70 text-xs block">
+                          before {content.earlyBirdDeadline}
+                        </span>
+                      </div>
+                    </div>
+                  )}
                 </div>
+
+                {"familyRegistrationFee" in content && (
+                  <p className="text-right text-xs text-gray-500">
+                    Family Run covers 1 child + 1 accompanying guardian
+                  </p>
+                )}
+
+                <span className="text-xs text-gray-500 text-center md:text-right">
+                  (HKD 50 goes to Bhotekoshi Flood victim orphans)
+                </span>
               </div>
 
               {/* Community Impact Info */}

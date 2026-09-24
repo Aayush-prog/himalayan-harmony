@@ -19,6 +19,14 @@ const getTimeLeft = (targetDate: string) => {
     };
 };
 
+const formatEventDate = (targetDate: string) => {
+    return new Date(targetDate).toLocaleDateString('en-US', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+    });
+};
+
 export default function Countdown({ targetDate }: CountdownProps) {
     // Initialise from the target immediately so the timer never flashes 0s on mount.
     const [timeLeft, setTimeLeft] = useState(() => getTimeLeft(targetDate));
@@ -64,6 +72,9 @@ export default function Countdown({ targetDate }: CountdownProps) {
                             <span className="text-[9px] sm:text-[10px] uppercase text-gray-400 mt-1 font-bold tracking-wider">Sec</span>
                         </div>
                     </div>
+                    <p className="mt-4 text-xs sm:text-sm text-gray-300 tracking-wide font-bold">
+                        {formatEventDate(targetDate)}
+                    </p>
                 </div>
             </div>
         </div>

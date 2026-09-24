@@ -127,10 +127,10 @@ export default function RegistrationPage() {
                 </div>
                 <div className="text-center mb-6">
                   <span className="text-yellow-400 font-bold text-lg">
-                    Early Bird: HKD 820
+                    Early Bird: HKD 810
                   </span>
                   <span className="text-yellow-400/70 text-xs block mt-1">
-                    before Feb 5, 2027
+                    before Jan 31, 2027
                   </span>
                 </div>
 
@@ -236,7 +236,7 @@ export default function RegistrationPage() {
                     Early Bird: HKD 600
                   </span>
                   <span className="text-yellow-400/70 text-xs block mt-1">
-                    before Feb 5, 2027
+                    before Jan 31, 2027
                   </span>
                 </div>
 
@@ -252,7 +252,7 @@ export default function RegistrationPage() {
                       <Clock size={14} className="text-primary" /> Start Time
                     </span>
                     <span className="text-white font-bold">
-                      08:00 (10h Cut-off)
+                      08:30 (10h Cut-off)
                     </span>
                   </div>
                   <div className="flex justify-between items-start">
@@ -330,19 +330,38 @@ export default function RegistrationPage() {
                   </span>
                 </div>
 
-                <div className="text-center text-4xl md:text-5xl font-black text-white mb-2">
-                  HKD 550
+                <div className="grid grid-cols-2 mb-4">
+                  <div className="text-center">
+                    <div className="text-gray-500 text-xs uppercase tracking-widest mb-2">
+                      Solo
+                    </div>
+                    <div className="text-3xl md:text-4xl font-black text-white mb-2">
+                      HKD 420
+                    </div>
+                    <span className="text-yellow-400 font-bold text-sm block">
+                      Early Bird: HKD 380
+                    </span>
+                    <span className="text-yellow-400/70 text-xs block mt-1">
+                      before Jan 31, 2027
+                    </span>
+                  </div>
+                  <div className="text-center border-l border-white/10">
+                    <div className="text-gray-500 text-xs uppercase tracking-widest mb-2">
+                      Family Run
+                    </div>
+                    <div className="text-3xl md:text-4xl font-black text-primary mb-2">
+                      HKD 700
+                    </div>
+                    <span className="text-yellow-400 font-bold text-sm block">
+                      Early Bird: HKD 630
+                    </span>
+                    <span className="text-yellow-400/70 text-xs block mt-1">
+                      before Jan 31, 2027
+                    </span>
+                  </div>
                 </div>
-                <div className="text-center text-gray-500 text-sm mb-2">
-                  Registration Fee
-                </div>
-                <div className="text-center mb-6">
-                  <span className="text-yellow-400 font-bold text-lg">
-                    Early Bird: HKD 510
-                  </span>
-                  <span className="text-yellow-400/70 text-xs block mt-1">
-                    before Feb 5, 2027
-                  </span>
+                <div className="text-right text-gray-500 text-xs mb-6">
+                  Family Run covers 1 child + 1 accompanying guardian
                 </div>
 
                 <div className="bg-black/20 p-4 mb-6 space-y-2 text-sm text-gray-300">

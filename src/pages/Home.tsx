@@ -315,12 +315,12 @@ export default function Home() {
                     <span className="text-gray-400 text-sm">
                       Early Bird Price
                     </span>
-                    <span className="text-yellow-400 font-bold">HKD 820</span>
+                    <span className="text-yellow-400 font-bold">HKD 810</span>
                   </div>
                 </div>
 
                 <p className="text-xs text-yellow-400 mb-4">
-                  Early Bird discount available until Feb 5, 2027
+                  Early Bird discount available until Jan 31, 2027
                 </p>
 
                 <Link
@@ -384,7 +384,7 @@ export default function Home() {
                 </div>
 
                 <p className="text-xs text-yellow-400 mb-4">
-                  Early Bird discount available until Feb 5, 2027
+                  Early Bird discount available until Jan 31, 2027
                 </p>
 
                 <Link
@@ -433,22 +433,38 @@ export default function Home() {
                     <span className="text-gray-400 text-sm">Cut-off Time</span>
                     <span className="text-white font-bold">6 hours</span>
                   </div>
-                  <div className="flex justify-between border-b border-white/10 pb-2">
-                    <span className="text-gray-400 text-sm">
-                      Registration Fee
+                </div>
+
+                <div className="grid grid-cols-2 mb-4">
+                  <div className="text-center">
+                    <span className="text-gray-500 text-xs uppercase tracking-widest block mb-1">
+                      Solo
                     </span>
-                    <span className="text-primary font-bold">HKD 550</span>
+                    <span className="text-primary font-bold text-lg block">
+                      HKD 420
+                    </span>
+                    <span className="text-yellow-400 font-bold text-xs block mt-1">
+                      Early Bird: HKD 380
+                    </span>
                   </div>
-                  <div className="flex justify-between border-b border-white/10 pb-2">
-                    <span className="text-gray-400 text-sm">
-                      Early Bird Price
+                  <div className="text-center border-l border-white/10">
+                    <span className="text-gray-500 text-xs uppercase tracking-widest block mb-1">
+                      Family Run
                     </span>
-                    <span className="text-yellow-400 font-bold">HKD 510</span>
+                    <span className="text-primary font-bold text-lg block">
+                      HKD 700
+                    </span>
+                    <span className="text-yellow-400 font-bold text-xs block mt-1">
+                      Early Bird: HKD 630
+                    </span>
                   </div>
                 </div>
 
+                <p className="text-xs text-gray-500 mb-2 text-right">
+                  Family Run covers 1 child + 1 accompanying guardian
+                </p>
                 <p className="text-xs text-yellow-400 mb-4">
-                  Early Bird discount available until Feb 5, 2027
+                  Early Bird discount available until Jan 31, 2027
                 </p>
 
                 <Link
