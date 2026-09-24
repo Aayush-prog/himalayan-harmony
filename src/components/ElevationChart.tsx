@@ -6,7 +6,7 @@ interface Checkpoint {
 }
 
 interface ElevationChartProps {
-    raceType: '50KM' | '12KM';
+    raceType: '50KM' | '26KM' | '12KM';
 }
 
 const elevationData = {
@@ -28,6 +28,19 @@ const elevationData = {
             { name: 'CP5\nSze Fong Shan', distance: 45 },
         ],
         maxDistance: 50,
+        maxElevation: 1000,
+    },
+    '26KM': {
+        // Sampled from the official HH26K_2027 GPX track (distance km, elevation m)
+        points: [
+            [0, 477], [1.02, 335], [2.02, 323], [3.01, 377], [4.01, 333], [5, 332],
+            [6.02, 350], [7.03, 399], [7.99, 227], [9, 183], [9.99, 198], [11.01, 320],
+            [12.02, 454], [13.01, 375], [13.99, 445], [14.99, 542], [16.02, 578],
+            [17, 437], [17.98, 652], [19.01, 727], [20, 721], [20.99, 851],
+            [21.98, 887], [23.01, 806], [23.98, 717], [25, 591], [25.97, 477]
+        ] as [number, number][],
+        checkpoints: [],
+        maxDistance: 26,
         maxElevation: 1000,
     },
     '12KM': {
@@ -83,14 +96,16 @@ const ElevationChart = ({ raceType }: ElevationChartProps) => {
     const yScale = (e: number) => padding.top + chartHeight - (e / data.maxElevation) * chartHeight;
 
     // Y-axis labels
-    const yLabels = raceType === '50KM'
-        ? [0, 200, 400, 600, 800, 1000]
-        : [0, 250, 500, 750, 1000];
+    const yLabels = raceType === '12KM'
+        ? [0, 250, 500, 750, 1000]
+        : [0, 200, 400, 600, 800, 1000];
 
     // X-axis labels
     const xLabels = raceType === '50KM'
         ? [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
-        : [0, 3, 6, 9, 12];
+        : raceType === '26KM'
+            ? [0, 5, 10, 15, 20, 25]
+            : [0, 3, 6, 9, 12];
 
     return (
         <div className="w-full h-full relative">

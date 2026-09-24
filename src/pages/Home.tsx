@@ -260,13 +260,13 @@ export default function Home() {
               Race <span className="text-primary">Categories</span>
             </h2>
             <p className="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
-              Choose your challenge - from the ultimate 50KM ultra to the
-              accessible 12KM experience
+              Choose your challenge - from the ultimate 50KM ultra, through
+              the 26KM adventure, to the accessible 12KM experience
             </p>
           </FadeInUp>
 
           <StaggerContainer
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
             staggerDelay={0.15}
           >
             {/* 50KM Card */}
@@ -309,13 +309,13 @@ export default function Home() {
                     <span className="text-gray-400 text-sm">
                       Registration Fee
                     </span>
-                    <span className="text-primary font-bold">HKD 790</span>
+                    <span className="text-primary font-bold">HKD 890</span>
                   </div>
                   <div className="flex justify-between border-b border-white/10 pb-2">
                     <span className="text-gray-400 text-sm">
                       Early Bird Price
                     </span>
-                    <span className="text-yellow-400 font-bold">HKD 720</span>
+                    <span className="text-yellow-400 font-bold">HKD 820</span>
                   </div>
                 </div>
 
@@ -326,6 +326,70 @@ export default function Home() {
                 <Link
                   to="/race-info"
                   state={{ activeTab: "50KM" }}
+                  className="inline-block border border-primary/50 hover:bg-primary hover:text-black text-primary font-bold text-xs px-6 py-3 uppercase tracking-wider transition-all"
+                >
+                  View Details
+                </Link>
+              </motion.div>
+            </StaggerItem>
+
+            {/* 26KM Card */}
+            <StaggerItem>
+              <motion.div
+                className="relative bg-[#0a193c] border border-white/10 p-8 group overflow-hidden"
+                whileHover={{ y: -5, borderColor: "rgba(22, 163, 74, 0.5)" }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-primary/30 translate-x-3 -translate-y-3" />
+                <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-primary/30 -translate-x-3 translate-y-3" />
+
+                <div className="absolute top-4 right-4 bg-primary text-black text-xs font-black px-3 py-1 -skew-x-12">
+                  <span className="skew-x-12 block">ADVENTURE</span>
+                </div>
+
+                <h3 className="text-5xl md:text-6xl font-black text-white mb-2 italic">
+                  26<span className="text-primary">KM</span>
+                </h3>
+                <p className="text-primary font-bold uppercase tracking-widest text-sm mb-6">
+                  Adventure
+                </p>
+
+                <div className="space-y-3 mb-8">
+                  <div className="flex justify-between border-b border-white/10 pb-2">
+                    <span className="text-gray-400 text-sm">Distance</span>
+                    <span className="text-white font-bold">26.0 km</span>
+                  </div>
+                  <div className="flex justify-between border-b border-white/10 pb-2">
+                    <span className="text-gray-400 text-sm">
+                      Elevation Gain
+                    </span>
+                    <span className="text-white font-bold">1,500m</span>
+                  </div>
+                  <div className="flex justify-between border-b border-white/10 pb-2">
+                    <span className="text-gray-400 text-sm">Cut-off Time</span>
+                    <span className="text-white font-bold">10 hours</span>
+                  </div>
+                  <div className="flex justify-between border-b border-white/10 pb-2">
+                    <span className="text-gray-400 text-sm">
+                      Registration Fee
+                    </span>
+                    <span className="text-primary font-bold">HKD 660</span>
+                  </div>
+                  <div className="flex justify-between border-b border-white/10 pb-2">
+                    <span className="text-gray-400 text-sm">
+                      Early Bird Price
+                    </span>
+                    <span className="text-yellow-400 font-bold">HKD 600</span>
+                  </div>
+                </div>
+
+                <p className="text-xs text-yellow-400 mb-4">
+                  Early Bird discount available until Feb 5, 2027
+                </p>
+
+                <Link
+                  to="/race-info"
+                  state={{ activeTab: "26KM" }}
                   className="inline-block border border-primary/50 hover:bg-primary hover:text-black text-primary font-bold text-xs px-6 py-3 uppercase tracking-wider transition-all"
                 >
                   View Details
@@ -367,19 +431,19 @@ export default function Home() {
                   </div>
                   <div className="flex justify-between border-b border-white/10 pb-2">
                     <span className="text-gray-400 text-sm">Cut-off Time</span>
-                    <span className="text-white font-bold">4 hours</span>
+                    <span className="text-white font-bold">6 hours</span>
                   </div>
                   <div className="flex justify-between border-b border-white/10 pb-2">
                     <span className="text-gray-400 text-sm">
                       Registration Fee
                     </span>
-                    <span className="text-primary font-bold">HKD 390</span>
+                    <span className="text-primary font-bold">HKD 550</span>
                   </div>
                   <div className="flex justify-between border-b border-white/10 pb-2">
                     <span className="text-gray-400 text-sm">
                       Early Bird Price
                     </span>
-                    <span className="text-yellow-400 font-bold">HKD 350</span>
+                    <span className="text-yellow-400 font-bold">HKD 510</span>
                   </div>
                 </div>
 

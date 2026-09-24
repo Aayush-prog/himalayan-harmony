@@ -14,7 +14,7 @@ import {
 } from "@/components/animations/ScrollAnimations";
 import { Calendar, Clock, MapPin, User } from "lucide-react";
 
-type RaceCategory = "50KM" | "12KM";
+type RaceCategory = "50KM" | "26KM" | "12KM";
 
 const raceData = {
   "50KM": {
@@ -74,8 +74,40 @@ const raceData = {
     location: "Tai Mo Shan",
     venue: "Rotary Park",
     minAge: "18+ Years",
-    registrationFee: "HKD 790",
-    earlyBirdFee: "HKD 720",
+    registrationFee: "HKD 890",
+    earlyBirdFee: "HKD 820",
+    earlyBirdDeadline: "Feb 5, 2027",
+    categories: ["18-39", "40-49", "50 above"],
+  },
+  "26KM": {
+    name: "26KM Adventure",
+    description:
+      "The 26KM Adventure is a mid-distance loop circling the heart of Tai Mo Shan, blending technical singletrack with sweeping ridge views. A serious step up from the 12KM that doesn't demand the full 50KM commitment.",
+    elevation: { gain: "1,500m", loss: "1,500m" },
+    gpxFile: "/Himalayan Harmony 26KM.gpx",
+    checkpoints: [
+      {
+        name: "Start - Tai Mo Shan",
+        dist: "0 km",
+        cutoff: "08:00",
+        refreshment: "Nepalese Cultural Show",
+      },
+      {
+        name: "Finish - Tai Mo Shan",
+        dist: "26 km",
+        cutoff: "18:00",
+        refreshment: "Aid, Food, Drinks",
+      },
+    ],
+    date: "28 Mar 2027",
+    day: "Sunday",
+    startTime: "08:00",
+    cutoff: "10h Cut-off",
+    location: "Tai Mo Shan",
+    venue: "Rotary Park",
+    minAge: "18+ Years",
+    registrationFee: "HKD 660",
+    earlyBirdFee: "HKD 600",
     earlyBirdDeadline: "Feb 5, 2027",
     categories: ["18-39", "40-49", "50 above"],
   },
@@ -95,27 +127,35 @@ const raceData = {
       {
         name: "CP1 - Sze Fong Shan",
         dist: "6.3 km",
-        cutoff: "09:30 - 11:30",
+        cutoff: "09:30 - 13:00",
         refreshment: "Aid, Food, Drinks",
       },
       {
         name: "Finish - Tai Mo Shan",
         dist: "12.5 km",
-        cutoff: "13:00",
+        cutoff: "15:00",
         refreshment: "Aid, Food, Drinks",
       },
     ],
     date: "28 Mar 2027",
     day: "Sunday",
     startTime: "09:00",
-    cutoff: "4h Cut-off",
+    cutoff: "6h Cut-off",
     location: "Tai Mo Shan",
     venue: "Rotary Park",
-    minAge: "12+ Years",
-    registrationFee: "HKD 390",
-    earlyBirdFee: "HKD 350",
+    minAge: "8+ Years",
+    registrationFee: "HKD 550",
+    earlyBirdFee: "HKD 510",
     earlyBirdDeadline: "Feb 5, 2027",
-    categories: ["12-13", "14-15", "16-17", "18-39", "40-49", "50 above"],
+    categories: [
+      "Family Run (8-11)",
+      "12-13",
+      "14-15",
+      "16-17",
+      "18-39",
+      "40-49",
+      "50 above",
+    ],
   },
 };
 
@@ -131,6 +171,8 @@ export default function RaceInfoPage() {
   }, [location.state]);
 
   const content = raceData[activeTab];
+  const tabOrder: RaceCategory[] = ["50KM", "26KM", "12KM"];
+  const nextTab = tabOrder[(tabOrder.indexOf(activeTab) + 1) % tabOrder.length];
 
   const handleDownloadGPX = () => {
     const link = document.createElement("a");
@@ -229,21 +271,12 @@ export default function RaceInfoPage() {
                     </span>
                   </div>
                   <span className="text-xs text-gray-500 mt-1">
-                    (HKD 50 goes to{" "}
-                    <a
-                      href="https://exchangeandempower.org/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary hover:text-white transition-colors"
-                    >
-                      Exchange and Empower
-                    </a>
-                    )
+                    (HKD 50 goes to Bhotekoshi Flood victim orphans)
                   </span>
                 </div>
               </div>
 
-              {/* Exchange and Empower Info */}
+              {/* Community Impact Info */}
               <div className="relative mb-10 overflow-hidden rounded border border-primary/50 bg-gradient-to-br from-primary/25 via-primary/10 to-transparent p-5 md:p-6 shadow-[0_0_35px_rgba(42,107,242,0.35)]">
                 {/* Outer glow halo */}
                 <div className="pointer-events-none absolute inset-0 rounded blur-xl bg-primary/20" />
@@ -268,23 +301,15 @@ export default function RaceInfoPage() {
                         HKD 50
                       </strong>{" "}
                       from your registration fee directly supports{" "}
-                      <a
-                        href="https://exchangeandempower.org/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-black text-primary underline underline-offset-4 hover:text-white transition-colors drop-shadow-[0_0_8px_rgba(42,107,242,0.8)]"
-                      >
-                        Exchange and Empower
-                      </a>
-                      , a Hong Kong–based charity empowering women through trail
-                      running.
+                      <strong className="font-black text-primary drop-shadow-[0_0_8px_rgba(42,107,242,0.8)]">
+                        Bhotekoshi Flood victim orphans
+                      </strong>
+                      .
                     </p>
 
                     <p className="text-xs md:text-sm text-gray-300 leading-relaxed">
-                      Their programs support women and children from rural Nepal
-                      and foreign domestic helpers in Hong Kong through
-                      workshops, social hikes, and structured training —
-                      building confidence and creating future role models.
+                      Your contribution helps support children orphaned by the
+                      Bhotekoshi flood, providing care and a path forward.
                     </p>
                   </div>
                 </div>
@@ -510,7 +535,7 @@ export default function RaceInfoPage() {
             <div className="flex justify-center">
               <button
                 onClick={() => {
-                  setActiveTab(activeTab === "50KM" ? "12KM" : "50KM");
+                  setActiveTab(nextTab);
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
                 className="relative group inline-block"
@@ -518,10 +543,7 @@ export default function RaceInfoPage() {
                 <span className="absolute inset-0 bg-[#2a6bf2] -skew-x-12 translate-x-1.5 translate-y-1.5 border border-white/10"></span>
                 <span className="relative block bg-[#ff8fa3] -skew-x-12 px-8 py-3 hover:-translate-y-0.5 transition-transform border border-white/10">
                   <span className="block font-black italic uppercase text-[#0a193c] tracking-widest text-sm">
-                    View{" "}
-                    {activeTab === "50KM"
-                      ? "12KM Experience"
-                      : "50KM Challenge"}
+                    View {raceData[nextTab].name}
                   </span>
                 </span>
               </button>

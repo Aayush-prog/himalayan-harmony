@@ -95,7 +95,7 @@ export default function RegistrationPage() {
             </h2>
           </FadeInUp>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* 50KM Challenge */}
             <FadeInLeft delay={0.2} className="h-full">
               <motion.div
@@ -120,14 +120,14 @@ export default function RegistrationPage() {
                 </div>
 
                 <div className="text-center text-4xl md:text-5xl font-black text-primary mb-2">
-                  HKD 790
+                  HKD 890
                 </div>
                 <div className="text-center text-gray-400 text-sm mb-2">
                   Registration Fee
                 </div>
                 <div className="text-center mb-6">
                   <span className="text-yellow-400 font-bold text-lg">
-                    Early Bird: HKD 720
+                    Early Bird: HKD 820
                   </span>
                   <span className="text-yellow-400/70 text-xs block mt-1">
                     before Feb 5, 2027
@@ -202,6 +202,111 @@ export default function RegistrationPage() {
               </motion.div>
             </FadeInLeft>
 
+            {/* 26KM Adventure */}
+            <FadeInUp delay={0.2} className="h-full">
+              <motion.div
+                className="design-box border-2 border-primary/50 flex flex-col h-full bg-[#1a2c55]"
+                initial={{ skewX: -6 }}
+                whileHover={{
+                  y: -10,
+                  x: 5,
+                  skewX: -6,
+                  borderColor: "rgba(22, 163, 74, 0.8)",
+                  boxShadow: "8px 8px 0px 0px rgba(22, 163, 74, 0.3)",
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="text-center mb-6 border-b border-white/10 pb-6">
+                  <h3 className="text-2xl md:text-3xl font-black text-white uppercase mb-2">
+                    26KM Adventure
+                  </h3>
+                  <span className="inline-block bg-primary text-[#0a193c] text-xs font-bold px-3 py-1 skew-x-[-12deg]">
+                    The Middle Ground
+                  </span>
+                </div>
+
+                <div className="text-center text-4xl md:text-5xl font-black text-primary mb-2">
+                  HKD 660
+                </div>
+                <div className="text-center text-gray-400 text-sm mb-2">
+                  Registration Fee
+                </div>
+                <div className="text-center mb-6">
+                  <span className="text-yellow-400 font-bold text-lg">
+                    Early Bird: HKD 600
+                  </span>
+                  <span className="text-yellow-400/70 text-xs block mt-1">
+                    before Feb 5, 2027
+                  </span>
+                </div>
+
+                <div className="bg-black/20 p-4 mb-6 space-y-2 text-sm text-gray-300">
+                  <div className="flex justify-between border-b border-white/5 pb-2">
+                    <span className="flex items-center gap-2">
+                      <Calendar size={14} className="text-primary" /> Date
+                    </span>
+                    <span className="text-white font-bold">28 March 2027</span>
+                  </div>
+                  <div className="flex justify-between border-b border-white/5 pb-2">
+                    <span className="flex items-center gap-2">
+                      <Clock size={14} className="text-primary" /> Start Time
+                    </span>
+                    <span className="text-white font-bold">
+                      08:00 (10h Cut-off)
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-start">
+                    <span className="flex items-center gap-2 mt-0.5">
+                      <Trophy size={14} className="text-primary" /> Categories
+                    </span>
+                    <div className="text-right">
+                      <span className="text-white font-bold block">18-39</span>
+                      <span className="text-white font-bold block">40-49</span>
+                      <span className="text-white font-bold block">50+</span>
+                    </div>
+                  </div>
+                </div>
+
+                <ul className="space-y-3 mb-8 flex-grow text-gray-300 text-sm">
+                  {[
+                    "Official Race Tee",
+                    "Finisher Medal",
+                    "Top 3 Cash Prizes",
+                    "Age Group Trophies",
+                  ].map((item, i) => (
+                    <motion.li key={i} className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary shrink-0" />{" "}
+                      {item}
+                    </motion.li>
+                  ))}
+                </ul>
+
+                <motion.button
+                  className={`btn w-full py-3 text-base font-bold ${
+                    isRegistrationOpen
+                      ? "btn-primary shadow-lg shadow-primary/20"
+                      : "bg-gray-600 text-gray-400 cursor-not-allowed"
+                  }`}
+                  whileHover={isRegistrationOpen ? { scale: 1.02 } : {}}
+                  whileTap={isRegistrationOpen ? { scale: 0.98 } : {}}
+                  disabled={!isRegistrationOpen}
+                  onClick={() => {
+                    if (isRegistrationOpen) {
+                      window.open(REGISTRATION_URL, "_blank");
+                    }
+                  }}
+                >
+                  {isRegistrationOpen ? (
+                    "Register Now"
+                  ) : (
+                    <span className="flex items-center justify-center gap-2">
+                      <Lock size={16} /> Opens Oct 1, 2026
+                    </span>
+                  )}
+                </motion.button>
+              </motion.div>
+            </FadeInUp>
+
             {/* 12KM Experience */}
             <FadeInRight delay={0.2} className="h-full">
               <motion.div
@@ -226,14 +331,14 @@ export default function RegistrationPage() {
                 </div>
 
                 <div className="text-center text-4xl md:text-5xl font-black text-white mb-2">
-                  HKD 390
+                  HKD 550
                 </div>
                 <div className="text-center text-gray-500 text-sm mb-2">
                   Registration Fee
                 </div>
                 <div className="text-center mb-6">
                   <span className="text-yellow-400 font-bold text-lg">
-                    Early Bird: HKD 350
+                    Early Bird: HKD 510
                   </span>
                   <span className="text-yellow-400/70 text-xs block mt-1">
                     before Feb 5, 2027
@@ -252,7 +357,7 @@ export default function RegistrationPage() {
                       <Clock size={14} className="text-primary" /> Start Time
                     </span>
                     <span className="text-white font-bold">
-                      09:00 (4h Cut-off)
+                      09:00 (6h Cut-off)
                     </span>
                   </div>
                   <div className="flex justify-between items-start">
@@ -260,6 +365,9 @@ export default function RegistrationPage() {
                       <Trophy size={14} className="text-primary" /> Categories
                     </span>
                     <div className="text-right">
+                      <span className="text-white font-bold block">
+                        Family Run (8-11)
+                      </span>
                       <span className="text-white font-bold block">12-13</span>
                       <span className="text-white font-bold block">14-15</span>
                       <span className="text-white font-bold block">16-17</span>
@@ -275,7 +383,7 @@ export default function RegistrationPage() {
                     "Official Race Tee",
                     "Finisher Medal",
                     " scenic route",
-                    "Age Group Trophies",
+                    "Top 3 Certificates",
                   ].map((item, i) => (
                     <motion.li key={i} className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-gray-500 shrink-0" />{" "}
