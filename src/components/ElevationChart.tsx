@@ -39,7 +39,11 @@ const elevationData = {
             [17, 437], [17.98, 652], [19.01, 727], [20, 721], [20.99, 851],
             [21.98, 887], [23.01, 806], [23.98, 717], [25, 591], [25.97, 477]
         ] as [number, number][],
-        checkpoints: [],
+        checkpoints: [
+            { name: 'CP1\nShing Mun', distance: 9.4 },
+            { name: 'CP2\nLead Mine Pass', distance: 17 },
+            { name: 'WP3\nSze Fong Shan', distance: 21 },
+        ],
         maxDistance: 26,
         maxElevation: 1000,
     },

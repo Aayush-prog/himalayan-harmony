@@ -93,6 +93,24 @@ const raceData = {
         refreshment: "Nepalese Cultural Show",
       },
       {
+        name: "CP1 - Shing Mun",
+        dist: "9.4 km",
+        cutoff: "",
+        refreshment: "Aid, Food, Drinks",
+      },
+      {
+        name: "CP2 - Lead Mine Pass",
+        dist: "17 km",
+        cutoff: "",
+        refreshment: "Aid, Food, Drinks",
+      },
+      {
+        name: "WP3 - Sze Fong Shan",
+        dist: "21 km",
+        cutoff: "",
+        refreshment: "Water Only",
+      },
+      {
         name: "Finish - Tai Mo Shan",
         dist: "26 km",
         cutoff: "18:00",
