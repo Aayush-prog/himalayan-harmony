@@ -166,12 +166,11 @@ const raceData = {
     earlyBirdFee: "HKD 380",
     familyRegistrationFee: "HKD 700",
     familyEarlyBirdFee: "HKD 630",
+    familyCutoff: "8h Cut-off",
     earlyBirdDeadline: "Jan 31, 2027",
     categories: [
       "Family Run (8-11)",
-      "12-13",
-      "14-15",
-      "16-17",
+      "12-17",
       "18-39",
       "40-49",
       "50 above",
@@ -334,7 +333,8 @@ export default function RaceInfoPage() {
 
                 {"familyRegistrationFee" in content && (
                   <p className="text-right text-xs text-gray-500">
-                    Family Run covers 1 child + 1 accompanying guardian
+                    Family Run covers 1 child (8-11) + 1 accompanying
+                    guardian (18+) &middot; {content.familyCutoff}
                   </p>
                 )}
 

@@ -361,7 +361,8 @@ export default function RegistrationPage() {
                   </div>
                 </div>
                 <div className="text-right text-gray-500 text-xs mb-6">
-                  Family Run covers 1 child + 1 accompanying guardian
+                  Family Run covers 1 child (8-11) + 1 accompanying guardian
+                  (18+) &middot; 8h Cut-off
                 </div>
 
                 <div className="bg-black/20 p-4 mb-6 space-y-2 text-sm text-gray-300">
@@ -376,7 +377,7 @@ export default function RegistrationPage() {
                       <Clock size={14} className="text-primary" /> Start Time
                     </span>
                     <span className="text-white font-bold">
-                      09:00 (6h Cut-off)
+                      09:00 (6h Cut-off, Solo)
                     </span>
                   </div>
                   <div className="flex justify-between items-start">
@@ -387,9 +388,7 @@ export default function RegistrationPage() {
                       <span className="text-white font-bold block">
                         Family Run (8-11)
                       </span>
-                      <span className="text-white font-bold block">12-13</span>
-                      <span className="text-white font-bold block">14-15</span>
-                      <span className="text-white font-bold block">16-17</span>
+                      <span className="text-white font-bold block">12-17</span>
                       <span className="text-white font-bold block">18-39</span>
                       <span className="text-white font-bold block">40-49</span>
                       <span className="text-white font-bold block">50+</span>

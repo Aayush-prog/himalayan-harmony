@@ -215,9 +215,7 @@ const Prizes = () => {
                 <div className="flex flex-wrap gap-2">
                   {[
                     "Family Run (8-11)",
-                    "12-13",
-                    "14-15",
-                    "16-17",
+                    "12-17",
                     "18-39",
                     "40-49",
                     "50 above",

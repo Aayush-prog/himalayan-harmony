@@ -430,7 +430,9 @@ export default function Home() {
                     <span className="text-white font-bold">659m</span>
                   </div>
                   <div className="flex justify-between border-b border-white/10 pb-2">
-                    <span className="text-gray-400 text-sm">Cut-off Time</span>
+                    <span className="text-gray-400 text-sm">
+                      Cut-off Time (Solo)
+                    </span>
                     <span className="text-white font-bold">6 hours</span>
                   </div>
                 </div>
@@ -461,7 +463,8 @@ export default function Home() {
                 </div>
 
                 <p className="text-xs text-gray-500 mb-2 text-right">
-                  Family Run covers 1 child + 1 accompanying guardian
+                  Family Run covers 1 child (8-11) + 1 accompanying
+                  guardian (18+) &middot; 8h Cut-off
                 </p>
                 <p className="text-xs text-yellow-400 mb-4">
                   Early Bird discount available until Jan 31, 2027
