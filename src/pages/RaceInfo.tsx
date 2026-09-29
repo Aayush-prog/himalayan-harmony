@@ -95,13 +95,13 @@ const raceData = {
       {
         name: "CP1 - Shing Mun",
         dist: "9.4 km",
-        cutoff: "",
+        cutoff: "10:30",
         refreshment: "Aid, Food, Drinks",
       },
       {
         name: "CP2 - Lead Mine Pass",
         dist: "17 km",
-        cutoff: "",
+        cutoff: "12:30",
         refreshment: "Aid, Food, Drinks",
       },
       {
@@ -205,7 +205,11 @@ export default function RaceInfoPage() {
 
   return (
     <div className="flex flex-col overflow-hidden">
-      <PageHeader title="The Race" subtitle="Course Maps & Details" bgImage="/IMG_1854.JPG" />
+      <PageHeader
+        title="The Race"
+        subtitle="Course Maps & Details"
+        bgImage="/IMG_1854.JPG"
+      />
 
       <div className="container mx-auto px-4 py-8 md:py-16">
         <FadeInUp>
@@ -568,8 +572,8 @@ export default function RaceInfoPage() {
                                 isStart
                                   ? "text-green-400"
                                   : isFinish
-                                  ? "text-red-400"
-                                  : "text-white"
+                                    ? "text-red-400"
+                                    : "text-white"
                               }`}
                             >
                               {cp.name}
