@@ -95,7 +95,7 @@ export default function RegistrationPage() {
             </h2>
           </FadeInUp>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
             {/* 50KM Challenge */}
             <FadeInLeft delay={0.2} className="h-full">
               <motion.div
@@ -330,39 +330,19 @@ export default function RegistrationPage() {
                   </span>
                 </div>
 
-                <div className="grid grid-cols-2 mb-4">
-                  <div className="text-center">
-                    <div className="text-gray-500 text-xs uppercase tracking-widest mb-2">
-                      Solo
-                    </div>
-                    <div className="text-3xl md:text-4xl font-black text-white mb-2">
-                      HKD 420
-                    </div>
-                    <span className="text-yellow-400 font-bold text-sm block">
-                      Early Bird: HKD 380
-                    </span>
-                    <span className="text-yellow-400/70 text-xs block mt-1">
-                      before Jan 31, 2027
-                    </span>
-                  </div>
-                  <div className="text-center border-l border-white/10">
-                    <div className="text-gray-500 text-xs uppercase tracking-widest mb-2">
-                      Family Run
-                    </div>
-                    <div className="text-3xl md:text-4xl font-black text-primary mb-2">
-                      HKD 700
-                    </div>
-                    <span className="text-yellow-400 font-bold text-sm block">
-                      Early Bird: HKD 630
-                    </span>
-                    <span className="text-yellow-400/70 text-xs block mt-1">
-                      before Jan 31, 2027
-                    </span>
-                  </div>
+                <div className="text-center text-4xl md:text-5xl font-black text-white mb-2">
+                  HKD 420
                 </div>
-                <div className="text-right text-gray-500 text-xs mb-6">
-                  Family Run covers 1 child (8-11) + 1 accompanying guardian
-                  (18+) &middot; 8h Cut-off
+                <div className="text-center text-gray-400 text-sm mb-2">
+                  Registration Fee
+                </div>
+                <div className="text-center mb-6">
+                  <span className="text-yellow-400 font-bold text-lg">
+                    Early Bird: HKD 380
+                  </span>
+                  <span className="text-yellow-400/70 text-xs block mt-1">
+                    before Jan 31, 2027
+                  </span>
                 </div>
 
                 <div className="bg-black/20 p-4 mb-6 space-y-2 text-sm text-gray-300">
@@ -377,7 +357,116 @@ export default function RegistrationPage() {
                       <Clock size={14} className="text-primary" /> Start Time
                     </span>
                     <span className="text-white font-bold">
-                      09:00 (6h Cut-off, Solo)
+                      09:00 (6h Cut-off)
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-start">
+                    <span className="flex items-center gap-2 mt-0.5">
+                      <Trophy size={14} className="text-primary" /> Categories
+                    </span>
+                    <div className="text-right">
+                      <span className="text-white font-bold block">12-17</span>
+                      <span className="text-white font-bold block">18-39</span>
+                      <span className="text-white font-bold block">40-49</span>
+                      <span className="text-white font-bold block">50+</span>
+                    </div>
+                  </div>
+                </div>
+
+                <ul className="space-y-3 mb-8 flex-grow text-gray-300 text-sm">
+                  {[
+                    "Official Race Tee",
+                    "Finisher Medal",
+                    " scenic route",
+                    "Top 3 Certificates",
+                  ].map((item, i) => (
+                    <motion.li key={i} className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-gray-500 shrink-0" />{" "}
+                      {item}
+                    </motion.li>
+                  ))}
+                </ul>
+
+                <motion.button
+                  className={`btn w-full py-3 text-base font-bold ${
+                    isRegistrationOpen
+                      ? "btn-primary shadow-lg shadow-blue-500/20"
+                      : "bg-gray-600 text-gray-400 cursor-not-allowed"
+                  }`}
+                  whileHover={isRegistrationOpen ? { scale: 1.02 } : {}}
+                  whileTap={isRegistrationOpen ? { scale: 0.98 } : {}}
+                  disabled={!isRegistrationOpen}
+                  onClick={() => {
+                    if (isRegistrationOpen) {
+                      window.open(REGISTRATION_URL, "_blank");
+                    }
+                  }}
+                >
+                  {isRegistrationOpen ? (
+                    "Register Now"
+                  ) : (
+                    <span className="flex items-center justify-center gap-2">
+                      <Lock size={16} /> Opens Oct 1, 2026
+                    </span>
+                  )}
+                </motion.button>
+              </motion.div>
+            </FadeInRight>
+
+            {/* Family Run */}
+            <FadeInRight delay={0.3} className="h-full">
+              <motion.div
+                className="design-box flex flex-col h-full bg-[#0a193c] border border-white/10"
+                initial={{ skewX: -6 }}
+                whileHover={{
+                  y: -10,
+                  x: 5,
+                  skewX: -6,
+                  borderColor: "rgba(255, 255, 255, 0.3)",
+                  boxShadow: "8px 8px 0px 0px rgba(42, 107, 242, 0.4)",
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="text-center mb-6 border-b border-white/10 pb-6">
+                  <h3 className="text-2xl md:text-3xl font-black text-white uppercase mb-2">
+                    Family Run
+                  </h3>
+                  <span className="inline-block bg-white/10 text-white text-xs font-bold px-3 py-1 skew-x-[-12deg]">
+                    Together on the Trail
+                  </span>
+                </div>
+
+                <div className="text-center text-4xl md:text-5xl font-black text-primary mb-2">
+                  HKD 700
+                </div>
+                <div className="text-center text-gray-400 text-sm mb-2">
+                  Registration Fee
+                </div>
+                <div className="text-center mb-6">
+                  <span className="text-yellow-400 font-bold text-lg">
+                    Early Bird: HKD 630
+                  </span>
+                  <span className="text-yellow-400/70 text-xs block mt-1">
+                    before Jan 31, 2027
+                  </span>
+                </div>
+                <div className="text-center text-gray-500 text-xs mb-6">
+                  Covers 1 child (8-11) + 1 accompanying guardian (18+)
+                </div>
+
+                <div className="bg-black/20 p-4 mb-6 space-y-2 text-sm text-gray-300">
+                  <div className="flex justify-between border-b border-white/5 pb-2">
+                    <span className="flex items-center gap-2">
+                      <Calendar size={14} className="text-primary" /> Date
+                    </span>
+                    <span className="text-white font-bold">28 March 2027</span>
+                  </div>
+                  <div className="flex justify-between border-b border-white/5 pb-2">
+                    <span className="flex items-center gap-2">
+                      <Clock size={14} className="text-primary" /> Start Time
+                    </span>
+                    <span className="text-white font-bold">
+                      09:00 (8h Cut-off)
                     </span>
                   </div>
                   <div className="flex justify-between items-start">
@@ -388,10 +477,6 @@ export default function RegistrationPage() {
                       <span className="text-white font-bold block">
                         Family Run (8-11)
                       </span>
-                      <span className="text-white font-bold block">12-17</span>
-                      <span className="text-white font-bold block">18-39</span>
-                      <span className="text-white font-bold block">40-49</span>
-                      <span className="text-white font-bold block">50+</span>
                     </div>
                   </div>
                 </div>

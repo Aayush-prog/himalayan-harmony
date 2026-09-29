@@ -188,7 +188,7 @@ const Prizes = () => {
         <motion.div
           whileHover={{ y: -5 }}
           transition={{ duration: 0.3 }}
-          className="relative bg-[#0a193c] border border-white/10 p-6 hover:border-primary/50 transition-colors duration-300"
+          className="relative bg-[#0a193c] border border-white/10 p-6 hover:border-primary/50 transition-colors duration-300 mb-16"
         >
           {/* Corner decorations */}
           <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/30 translate-x-2 -translate-y-2" />
@@ -213,13 +213,50 @@ const Prizes = () => {
                   每個年齡組別嘅前3名嘅證書
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {[
-                    "Family Run (8-11)",
-                    "12-17",
-                    "18-39",
-                    "40-49",
-                    "50 above",
-                  ].map((age, i) => (
+                  {["12-17", "18-39", "40-49", "50 above"].map((age, i) => (
+                    <span
+                      key={i}
+                      className="px-3 py-1 bg-primary/10 border border-primary/30 text-primary text-xs font-bold uppercase tracking-wider rounded"
+                    >
+                      {age}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Family Run Category */}
+        <motion.div
+          whileHover={{ y: -5 }}
+          transition={{ duration: 0.3 }}
+          className="relative bg-[#0a193c] border border-white/10 p-6 hover:border-primary/50 transition-colors duration-300"
+        >
+          {/* Corner decorations */}
+          <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/30 translate-x-2 -translate-y-2" />
+          <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/30 -translate-x-2 translate-y-2" />
+
+          <div className="flex items-center gap-4 mb-8 border-b border-white/10 pb-6">
+            <Medal className="text-primary w-8 h-8" />
+            <h2 className="text-2xl md:text-3xl font-black uppercase italic text-white">
+              Family Run Prizes
+            </h2>
+          </div>
+
+          <div className="bg-black/40 border border-white/10 p-6">
+            <h3 className="text-lg font-black text-white uppercase italic mb-4 flex items-center gap-2">
+              <Trophy className="w-5 h-5 text-primary" />
+              Awards & Prizes
+            </h3>
+            <div className="flex flex-col md:flex-row gap-6 md:items-center justify-between">
+              <div>
+                <p className="text-gray-300 mb-2">
+                  Certificates for every finishing family team /
+                  每隊完成賽事嘅家庭隊伍均獲證書
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {["Family Run (8-11)"].map((age, i) => (
                     <span
                       key={i}
                       className="px-3 py-1 bg-primary/10 border border-primary/30 text-primary text-xs font-bold uppercase tracking-wider rounded"

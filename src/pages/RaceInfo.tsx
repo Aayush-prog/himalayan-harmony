@@ -14,7 +14,7 @@ import {
 } from "@/components/animations/ScrollAnimations";
 import { Calendar, Clock, MapPin, User } from "lucide-react";
 
-type RaceCategory = "50KM" | "26KM" | "12KM";
+type RaceCategory = "50KM" | "26KM" | "12KM" | "FAMILY";
 
 const raceData = {
   "50KM": {
@@ -55,12 +55,6 @@ const raceData = {
         refreshment: "Aid, Food, Drinks",
       },
       {
-        name: "WP5 - Sze Fong Shan",
-        dist: "45.6 km",
-        cutoff: "12:00 - 19:00",
-        refreshment: "Water Only",
-      },
-      {
         name: "Finish - Tai Mo Shan",
         dist: "50 km",
         cutoff: "12:30 - 22:00",
@@ -89,31 +83,25 @@ const raceData = {
       {
         name: "Start - Tai Mo Shan",
         dist: "0 km",
-        cutoff: "08:30",
+        cutoff: "09:30",
         refreshment: "Nepalese Cultural Show",
       },
       {
         name: "CP1 - Shing Mun",
         dist: "9.4 km",
-        cutoff: "10:30",
+        cutoff: "11:30",
         refreshment: "Aid, Food, Drinks",
       },
       {
         name: "CP2 - Lead Mine Pass",
         dist: "17 km",
-        cutoff: "12:30",
+        cutoff: "13:30",
         refreshment: "Aid, Food, Drinks",
-      },
-      {
-        name: "WP3 - Sze Fong Shan",
-        dist: "21 km",
-        cutoff: "",
-        refreshment: "Water Only",
       },
       {
         name: "Finish - Tai Mo Shan",
         dist: "26 km",
-        cutoff: "18:00",
+        cutoff: "18:30",
         refreshment: "Aid, Food, Drinks",
       },
     ],
@@ -164,17 +152,46 @@ const raceData = {
     minAge: "8+ Years",
     registrationFee: "HKD 420",
     earlyBirdFee: "HKD 380",
-    familyRegistrationFee: "HKD 700",
-    familyEarlyBirdFee: "HKD 630",
-    familyCutoff: "8h Cut-off",
     earlyBirdDeadline: "Jan 31, 2027",
-    categories: [
-      "Family Run (8-11)",
-      "12-17",
-      "18-39",
-      "40-49",
-      "50 above",
+    categories: ["12-17", "18-39", "40-49", "50 above"],
+  },
+  FAMILY: {
+    name: "Family Run",
+    description:
+      "A relaxed, guided walk along the 12KM course designed for parents and kids to enjoy Tai Mo Shan together. Each entry covers 1 child (8-11) with 1 accompanying guardian (18+), with a generous cut-off so families can take their time.",
+    elevation: { gain: "659m", loss: "650m" },
+    gpxFile: "/Himalayan Harmony 12KM.gpx",
+    checkpoints: [
+      {
+        name: "Start - Tai Mo Shan",
+        dist: "0 km",
+        cutoff: "09:00",
+        refreshment: "Nepalese Cultural Show",
+      },
+      {
+        name: "CP1 - Sze Fong Shan",
+        dist: "6.3 km",
+        cutoff: "09:30 - 15:00",
+        refreshment: "Aid, Food, Drinks",
+      },
+      {
+        name: "Finish - Tai Mo Shan",
+        dist: "12.5 km",
+        cutoff: "17:00",
+        refreshment: "Aid, Food, Drinks",
+      },
     ],
+    date: "28 Mar 2027",
+    day: "Sunday",
+    startTime: "09:00",
+    cutoff: "8h Cut-off",
+    location: "Tai Mo Shan",
+    venue: "Rotary Park",
+    minAge: "8-11 Years (+Guardian)",
+    registrationFee: "HKD 700",
+    earlyBirdFee: "HKD 630",
+    earlyBirdDeadline: "Jan 31, 2027",
+    categories: ["Family Run (8-11)"],
   },
 };
 
@@ -190,7 +207,7 @@ export default function RaceInfoPage() {
   }, [location.state]);
 
   const content = raceData[activeTab];
-  const tabOrder: RaceCategory[] = ["50KM", "26KM", "12KM"];
+  const tabOrder: RaceCategory[] = ["50KM", "26KM", "12KM", "FAMILY"];
   const nextTab = tabOrder[(tabOrder.indexOf(activeTab) + 1) % tabOrder.length];
 
   const handleDownloadGPX = () => {
@@ -280,61 +297,28 @@ export default function RaceInfoPage() {
                     Race Details
                   </h3>
 
-                  {"familyRegistrationFee" in content ? (
-                    <div className="grid grid-cols-2 gap-6 w-full md:w-auto">
-                      <div className="text-center">
-                        <span className="text-xs text-gray-400 uppercase tracking-widest block mb-1">
-                          Solo
-                        </span>
-                        <span className="text-2xl font-black text-primary block">
-                          {content.registrationFee}
-                        </span>
-                        <span className="text-yellow-400 font-bold text-sm block mt-1">
-                          Early Bird: {content.earlyBirdFee}
-                        </span>
-                        <span className="text-yellow-400/70 text-xs block">
-                          before {content.earlyBirdDeadline}
-                        </span>
-                      </div>
-                      <div className="text-center border-l border-white/10 pl-6">
-                        <span className="text-xs text-gray-400 uppercase tracking-widest block mb-1">
-                          Family Run
-                        </span>
-                        <span className="text-2xl font-black text-primary block">
-                          {content.familyRegistrationFee}
-                        </span>
-                        <span className="text-yellow-400 font-bold text-sm block mt-1">
-                          Early Bird: {content.familyEarlyBirdFee}
-                        </span>
-                        <span className="text-yellow-400/70 text-xs block">
-                          before {content.earlyBirdDeadline}
-                        </span>
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="flex flex-col items-end">
-                      <span className="text-2xl font-black text-primary">
-                        {content.registrationFee}
+                  <div className="flex flex-col items-end">
+                    <span className="text-2xl font-black text-primary">
+                      {content.registrationFee}
+                    </span>
+                    <span className="text-sm text-gray-400 uppercase tracking-widest">
+                      Registration Fee
+                    </span>
+                    <div className="mt-2 text-right">
+                      <span className="text-yellow-400 font-bold">
+                        Early Bird: {content.earlyBirdFee}
                       </span>
-                      <span className="text-sm text-gray-400 uppercase tracking-widest">
-                        Registration Fee
+                      <span className="text-yellow-400/70 text-xs block">
+                        before {content.earlyBirdDeadline}
                       </span>
-                      <div className="mt-2 text-right">
-                        <span className="text-yellow-400 font-bold">
-                          Early Bird: {content.earlyBirdFee}
-                        </span>
-                        <span className="text-yellow-400/70 text-xs block">
-                          before {content.earlyBirdDeadline}
-                        </span>
-                      </div>
                     </div>
-                  )}
+                  </div>
                 </div>
 
-                {"familyRegistrationFee" in content && (
+                {activeTab === "FAMILY" && (
                   <p className="text-right text-xs text-gray-500">
                     Family Run covers 1 child (8-11) + 1 accompanying
-                    guardian (18+) &middot; {content.familyCutoff}
+                    guardian (18+) &middot; {content.cutoff}
                   </p>
                 )}
 

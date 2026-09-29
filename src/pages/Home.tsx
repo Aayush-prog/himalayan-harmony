@@ -266,7 +266,7 @@ export default function Home() {
           </FadeInUp>
 
           <StaggerContainer
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto"
             staggerDelay={0.15}
           >
             {/* 50KM Card */}
@@ -431,41 +431,24 @@ export default function Home() {
                   </div>
                   <div className="flex justify-between border-b border-white/10 pb-2">
                     <span className="text-gray-400 text-sm">
-                      Cut-off Time (Solo)
+                      Cut-off Time
                     </span>
                     <span className="text-white font-bold">6 hours</span>
                   </div>
-                </div>
-
-                <div className="grid grid-cols-2 mb-4">
-                  <div className="text-center">
-                    <span className="text-gray-500 text-xs uppercase tracking-widest block mb-1">
-                      Solo
+                  <div className="flex justify-between border-b border-white/10 pb-2">
+                    <span className="text-gray-400 text-sm">
+                      Registration Fee
                     </span>
-                    <span className="text-primary font-bold text-lg block">
-                      HKD 420
-                    </span>
-                    <span className="text-yellow-400 font-bold text-xs block mt-1">
-                      Early Bird: HKD 380
-                    </span>
+                    <span className="text-primary font-bold">HKD 420</span>
                   </div>
-                  <div className="text-center border-l border-white/10">
-                    <span className="text-gray-500 text-xs uppercase tracking-widest block mb-1">
-                      Family Run
+                  <div className="flex justify-between border-b border-white/10 pb-2">
+                    <span className="text-gray-400 text-sm">
+                      Early Bird Price
                     </span>
-                    <span className="text-primary font-bold text-lg block">
-                      HKD 700
-                    </span>
-                    <span className="text-yellow-400 font-bold text-xs block mt-1">
-                      Early Bird: HKD 630
-                    </span>
+                    <span className="text-yellow-400 font-bold">HKD 380</span>
                   </div>
                 </div>
 
-                <p className="text-xs text-gray-500 mb-2 text-right">
-                  Family Run covers 1 child (8-11) + 1 accompanying
-                  guardian (18+) &middot; 8h Cut-off
-                </p>
                 <p className="text-xs text-yellow-400 mb-4">
                   Early Bird discount available until Jan 31, 2027
                 </p>
@@ -473,6 +456,67 @@ export default function Home() {
                 <Link
                   to="/race-info"
                   state={{ activeTab: "12KM" }}
+                  className="inline-block border border-primary/50 hover:bg-primary hover:text-black text-primary font-bold text-xs px-6 py-3 uppercase tracking-wider transition-all"
+                >
+                  View Details
+                </Link>
+              </motion.div>
+            </StaggerItem>
+
+            {/* Family Run Card */}
+            <StaggerItem>
+              <motion.div
+                className="relative bg-[#0a193c] border border-white/10 p-8 group overflow-hidden"
+                whileHover={{ y: -5, borderColor: "rgba(22, 163, 74, 0.5)" }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-primary/30 translate-x-3 -translate-y-3" />
+                <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-primary/30 -translate-x-3 translate-y-3" />
+
+                <div className="absolute top-4 right-4 bg-blue-500 text-white text-xs font-black px-3 py-1 -skew-x-12">
+                  <span className="skew-x-12 block">FAMILY</span>
+                </div>
+
+                <h3 className="text-5xl md:text-6xl font-black text-white mb-2 italic">
+                  Family<span className="text-primary"> Run</span>
+                </h3>
+                <p className="text-primary font-bold uppercase tracking-widest text-sm mb-6">
+                  Together on the Trail
+                </p>
+
+                <div className="space-y-3 mb-8">
+                  <div className="flex justify-between border-b border-white/10 pb-2">
+                    <span className="text-gray-400 text-sm">Distance</span>
+                    <span className="text-white font-bold">12.5 km</span>
+                  </div>
+                  <div className="flex justify-between border-b border-white/10 pb-2">
+                    <span className="text-gray-400 text-sm">Cut-off Time</span>
+                    <span className="text-white font-bold">8 hours</span>
+                  </div>
+                  <div className="flex justify-between border-b border-white/10 pb-2">
+                    <span className="text-gray-400 text-sm">
+                      Registration Fee
+                    </span>
+                    <span className="text-primary font-bold">HKD 700</span>
+                  </div>
+                  <div className="flex justify-between border-b border-white/10 pb-2">
+                    <span className="text-gray-400 text-sm">
+                      Early Bird Price
+                    </span>
+                    <span className="text-yellow-400 font-bold">HKD 630</span>
+                  </div>
+                </div>
+
+                <p className="text-xs text-gray-500 mb-2">
+                  Covers 1 child (8-11) + 1 accompanying guardian (18+)
+                </p>
+                <p className="text-xs text-yellow-400 mb-4">
+                  Early Bird discount available until Jan 31, 2027
+                </p>
+
+                <Link
+                  to="/race-info"
+                  state={{ activeTab: "FAMILY" }}
                   className="inline-block border border-primary/50 hover:bg-primary hover:text-black text-primary font-bold text-xs px-6 py-3 uppercase tracking-wider transition-all"
                 >
                   View Details

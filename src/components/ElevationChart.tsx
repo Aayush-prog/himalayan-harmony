@@ -6,7 +6,7 @@ interface Checkpoint {
 }
 
 interface ElevationChartProps {
-    raceType: '50KM' | '26KM' | '12KM';
+    raceType: '50KM' | '26KM' | '12KM' | 'FAMILY';
 }
 
 const elevationData = {
@@ -25,7 +25,6 @@ const elevationData = {
             { name: 'CP2\nShatin Pass', distance: 22 },
             { name: 'CP3\nShing Mun', distance: 35 },
             { name: 'CP4\nLead Pass', distance: 42 },
-            { name: 'CP5\nSze Fong Shan', distance: 45 },
         ],
         maxDistance: 50,
         maxElevation: 1000,
@@ -42,12 +41,23 @@ const elevationData = {
         checkpoints: [
             { name: 'CP1\nShing Mun', distance: 9.4 },
             { name: 'CP2\nLead Mine Pass', distance: 17 },
-            { name: 'WP3\nSze Fong Shan', distance: 21 },
         ],
         maxDistance: 26,
         maxElevation: 1000,
     },
     '12KM': {
+        points: [
+            [0, 450], [1, 550], [2, 650], [3, 800], [4, 880], [4.5, 920],
+            [5, 850], [5.5, 780], [6, 750], [6.5, 800], [7, 870], [7.8, 930],
+            [8.5, 850], [9, 700], [10, 550], [11, 480], [12, 450]
+        ] as [number, number][],
+        checkpoints: [
+            { name: 'CP1\nSze Fong Shan', distance: 6 },
+        ],
+        maxDistance: 12,
+        maxElevation: 1000,
+    },
+    'FAMILY': {
         points: [
             [0, 450], [1, 550], [2, 650], [3, 800], [4, 880], [4.5, 920],
             [5, 850], [5.5, 780], [6, 750], [6.5, 800], [7, 870], [7.8, 930],
@@ -100,7 +110,7 @@ const ElevationChart = ({ raceType }: ElevationChartProps) => {
     const yScale = (e: number) => padding.top + chartHeight - (e / data.maxElevation) * chartHeight;
 
     // Y-axis labels
-    const yLabels = raceType === '12KM'
+    const yLabels = raceType === '12KM' || raceType === 'FAMILY'
         ? [0, 250, 500, 750, 1000]
         : [0, 200, 400, 600, 800, 1000];
 
