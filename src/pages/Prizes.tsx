@@ -8,7 +8,11 @@ const Prizes = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <PageHeader title="Prizes & Awards" subtitle="Champions of the Trail" bgImage="/IMG_8069.JPG" />
+      <PageHeader
+        title="Prizes & Awards"
+        subtitle="Champions of the Trail"
+        bgImage="/IMG_8069.JPG"
+      />
 
       <div className="container mx-auto px-4 py-12 max-w-5xl">
         {/* 50KM Category */}
@@ -252,7 +256,7 @@ const Prizes = () => {
             <div className="flex flex-col md:flex-row gap-6 md:items-center justify-between">
               <div>
                 <p className="text-gray-300 mb-2">
-                  Certificates for every finishing family team /
+                  E-Certificates for every finishing family team /
                   每隊完成賽事嘅家庭隊伍均獲證書
                 </p>
                 <div className="flex flex-wrap gap-2">
