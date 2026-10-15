@@ -78,14 +78,36 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
           >
-            <Link to="/registration" className="relative group inline-block">
-              <span className="absolute inset-0 bg-[#2a6bf2] -skew-x-12 translate-x-1.5 translate-y-1.5 border border-white/10"></span>
-              <span className="relative block bg-[#ff8fa3] -skew-x-12 px-10 py-4 hover:-translate-y-0.5 transition-transform border border-white/10">
-                <span className="block font-black italic uppercase text-[#0a193c] tracking-widest text-sm md:text-lg">
-                  Registration
+            {isRegistrationOpen() ? (
+              <Link to="/registration" className="relative group inline-block">
+                <span className="absolute inset-0 bg-[#2a6bf2] -skew-x-12 translate-x-1.5 translate-y-1.5 border border-white/10"></span>
+                <span className="relative block bg-[#ff8fa3] -skew-x-12 px-10 py-4 hover:-translate-y-0.5 transition-transform border border-white/10">
+                  <span className="block font-black italic uppercase text-[#0a193c] tracking-widest text-sm md:text-lg">
+                    Registration
+                  </span>
                 </span>
-              </span>
-            </Link>
+              </Link>
+            ) : (
+              <div
+                className="relative inline-block"
+                aria-disabled="true"
+                title={
+                  REGISTRATION_SEATS_FULL
+                    ? "Registration closed — all seats filled"
+                    : `Registration opens ${REGISTRATION_OPEN_LABEL}`
+                }
+              >
+                <span className="absolute inset-0 bg-white/5 -skew-x-12 translate-x-1.5 translate-y-1.5 border border-white/10"></span>
+                <span className="relative block bg-[#243b64] -skew-x-12 px-10 py-4 border border-white/10 cursor-not-allowed">
+                  <span className="flex items-center justify-center gap-2 font-black italic uppercase text-gray-300 tracking-widest text-sm md:text-lg">
+                    <Lock size={15} />{" "}
+                    {REGISTRATION_SEATS_FULL
+                      ? REGISTRATION_FULL_LABEL
+                      : `Opens ${REGISTRATION_OPEN_LABEL}`}
+                  </span>
+                </span>
+              </div>
+            )}
 
             <button className="relative group inline-block">
               <span className="absolute inset-0 bg-[#2a6bf2] -skew-x-12 translate-x-1.5 translate-y-1.5 border border-white/10"></span>
