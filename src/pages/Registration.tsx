@@ -17,6 +17,8 @@ import {
 import { usePageTitle } from "@/hooks/usePageTitle";
 import {
   REGISTRATION_URL,
+  REGISTRATION_SEATS_FULL,
+  REGISTRATION_FULL_LABEL,
   isRegistrationOpen as isRegistrationOpenFn,
 } from "@/config/registration";
 
@@ -195,7 +197,10 @@ export default function RegistrationPage() {
                     "Register Now"
                   ) : (
                     <span className="flex items-center justify-center gap-2">
-                      <Lock size={16} /> Opens Oct 1, 2026
+                      <Lock size={16} />{" "}
+                      {REGISTRATION_SEATS_FULL
+                        ? REGISTRATION_FULL_LABEL
+                        : "Opens Oct 1, 2026"}
                     </span>
                   )}
                 </motion.button>
@@ -300,7 +305,10 @@ export default function RegistrationPage() {
                     "Register Now"
                   ) : (
                     <span className="flex items-center justify-center gap-2">
-                      <Lock size={16} /> Opens Oct 1, 2026
+                      <Lock size={16} />{" "}
+                      {REGISTRATION_SEATS_FULL
+                        ? REGISTRATION_FULL_LABEL
+                        : "Opens Oct 1, 2026"}
                     </span>
                   )}
                 </motion.button>
@@ -406,7 +414,10 @@ export default function RegistrationPage() {
                     "Register Now"
                   ) : (
                     <span className="flex items-center justify-center gap-2">
-                      <Lock size={16} /> Opens Oct 1, 2026
+                      <Lock size={16} />{" "}
+                      {REGISTRATION_SEATS_FULL
+                        ? REGISTRATION_FULL_LABEL
+                        : "Opens Oct 1, 2026"}
                     </span>
                   )}
                 </motion.button>
@@ -514,7 +525,10 @@ export default function RegistrationPage() {
                     "Register Now"
                   ) : (
                     <span className="flex items-center justify-center gap-2">
-                      <Lock size={16} /> Opens Oct 1, 2026
+                      <Lock size={16} />{" "}
+                      {REGISTRATION_SEATS_FULL
+                        ? REGISTRATION_FULL_LABEL
+                        : "Opens Oct 1, 2026"}
                     </span>
                   )}
                 </motion.button>

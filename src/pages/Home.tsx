@@ -3,7 +3,12 @@ import { motion } from "framer-motion";
 import { Lock } from "lucide-react";
 import Countdown from "@/components/Countdown";
 import { usePageTitle } from "@/hooks/usePageTitle";
-import { isRegistrationOpen, REGISTRATION_OPEN_LABEL } from "@/config/registration";
+import {
+  isRegistrationOpen,
+  REGISTRATION_OPEN_LABEL,
+  REGISTRATION_SEATS_FULL,
+  REGISTRATION_FULL_LABEL,
+} from "@/config/registration";
 import {
   FadeInUp,
   StaggerContainer,
@@ -540,12 +545,19 @@ export default function Home() {
                 <div
                   className="relative inline-block"
                   aria-disabled="true"
-                  title={`Registration opens ${REGISTRATION_OPEN_LABEL}`}
+                  title={
+                    REGISTRATION_SEATS_FULL
+                      ? "Registration closed — all seats filled"
+                      : `Registration opens ${REGISTRATION_OPEN_LABEL}`
+                  }
                 >
                   <span className="absolute inset-0 bg-white/5 -skew-x-12 translate-x-1.5 translate-y-1.5 border border-white/10"></span>
                   <span className="relative block bg-[#243b64] -skew-x-12 px-10 py-4 border border-white/10 cursor-not-allowed">
                     <span className="flex items-center justify-center gap-2 font-black italic uppercase text-gray-300 tracking-widest text-sm">
-                      <Lock size={15} /> Opens {REGISTRATION_OPEN_LABEL}
+                      <Lock size={15} />{" "}
+                      {REGISTRATION_SEATS_FULL
+                        ? REGISTRATION_FULL_LABEL
+                        : `Opens ${REGISTRATION_OPEN_LABEL}`}
                     </span>
                   </span>
                 </div>

@@ -5,11 +5,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   REGISTRATION_URL,
   REGISTRATION_OPEN_LABEL,
+  REGISTRATION_SEATS_FULL,
+  REGISTRATION_FULL_LABEL,
   isRegistrationOpen,
 } from "@/config/registration";
 
-// "Register Now" CTA. Before registration opens it renders as a disabled,
-// non-clickable button reading "Opens Oct 1, 2026" to signal when it unlocks.
+// "Register Now" CTA. Before registration opens, or once seats fill up, it
+// renders as a disabled, non-clickable button signalling why.
 const RegisterCta = ({ full = false }: { full?: boolean }) => {
   if (isRegistrationOpen()) {
     return (
@@ -33,12 +35,19 @@ const RegisterCta = ({ full = false }: { full?: boolean }) => {
     <div
       className={`relative inline-block ${full ? "w-full" : ""}`}
       aria-disabled="true"
-      title={`Registration opens ${REGISTRATION_OPEN_LABEL}`}
+      title={
+        REGISTRATION_SEATS_FULL
+          ? "Registration closed — all seats filled"
+          : `Registration opens ${REGISTRATION_OPEN_LABEL}`
+      }
     >
       <span className="absolute inset-0 bg-white/5 transform -skew-x-12 translate-x-1.5 translate-y-1.5 border border-white/10"></span>
       <span className="relative block bg-[#243b64] transform -skew-x-12 px-8 py-3 border border-white/10 cursor-not-allowed text-center">
         <span className="flex items-center justify-center gap-2 font-black italic uppercase text-gray-300 tracking-widest text-sm">
-          <Lock size={14} /> Opens {REGISTRATION_OPEN_LABEL}
+          <Lock size={14} />{" "}
+          {REGISTRATION_SEATS_FULL
+            ? REGISTRATION_FULL_LABEL
+            : `Opens ${REGISTRATION_OPEN_LABEL}`}
         </span>
       </span>
     </div>
