@@ -10,7 +10,7 @@ export const REGISTRATION_URL = "https://raceresults.com.hk/event/492";
 
 // Set to true once all seats have been filled; closes registration early
 // even though the opening date has already passed.
-export const REGISTRATION_SEATS_FULL = true;
+export const REGISTRATION_SEATS_FULL = false;
 
 // Label shown on the disabled button once seats are full.
 export const REGISTRATION_FULL_LABEL = "Seats Full";
@@ -18,6 +18,7 @@ export const REGISTRATION_FULL_LABEL = "Seats Full";
 // True once the opening date has passed and seats are still available.
 export function isRegistrationOpen(now: Date = new Date()): boolean {
   return (
-    now.getTime() >= REGISTRATION_OPEN_DATE.getTime() && !REGISTRATION_SEATS_FULL
+    now.getTime() >= REGISTRATION_OPEN_DATE.getTime() &&
+    !REGISTRATION_SEATS_FULL
   );
 }
