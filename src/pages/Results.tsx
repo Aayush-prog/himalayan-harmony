@@ -67,7 +67,7 @@ export default function ResultsPage() {
             <PageHeader
                 title="Race Results"
                 subtitle={`Himalayan Harmony 2026 · ${EVENT_DATE}`}
-                bgImage="/IMG_8069.JPG"
+                bgImage="/new images/race result.jpeg"
             />
 
             <div className="container mx-auto px-4 py-8 md:py-16">

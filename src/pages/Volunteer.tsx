@@ -13,7 +13,7 @@ const Volunteer = () => {
       <PageHeader
         title="VOLUNTEER"
         subtitle="JOIN THE CREW"
-        bgImage="/IMG_6898.jpeg"
+        bgImage="/new images/volunteer.jpeg"
       />
 
       <div className="container-custom py-12 relative z-10">

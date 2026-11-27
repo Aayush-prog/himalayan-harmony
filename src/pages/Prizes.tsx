@@ -11,7 +11,7 @@ const Prizes = () => {
       <PageHeader
         title="Prizes & Awards"
         subtitle="Champions of the Trail"
-        bgImage="/IMG_8069.JPG"
+        bgImage="/new images/prizes.jpeg"
       />
 
       <div className="container mx-auto px-4 py-12 max-w-5xl">

@@ -224,7 +224,7 @@ export default function RaceInfoPage() {
       <PageHeader
         title="The Race"
         subtitle="Course Maps & Details"
-        bgImage="/IMG_1854.JPG"
+        bgImage="/new images/the race.jpeg"
       />
 
       <div className="container mx-auto px-4 py-8 md:py-16">
